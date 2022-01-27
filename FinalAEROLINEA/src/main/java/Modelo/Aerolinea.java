@@ -6,7 +6,9 @@ public class Aerolinea {
     private String nombre;
     private String RUC;
     private Vuelo vuelos[];
+    private Vuelo vuelo;
     private PasajeroArreglo pasajeros = new PasajeroArreglo();
+    
 
     public Aerolinea(String nombre, String RUC) {
         this.nombre = nombre;
@@ -45,7 +47,10 @@ public class Aerolinea {
     
     public Pasajero[] getPasajerosPorVuelo(Vuelo v){
         Pasajero[] pasajeros = null;
-        pasajeros[pasajeros.length].
+        v.getPasajeros().getIndicePas();
+        for(int i=0; i<this.pasajeros.getIndicePas();i++){
+        this.pasajeros==pasajeros[v.getPasajeros().getIndicePas()];
+        }
         return pasajeros;
     }
     

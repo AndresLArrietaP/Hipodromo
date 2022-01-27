@@ -55,13 +55,24 @@ public class Asiento {
     
     public boolean reservarAsiento(){
         boolean result=false;
+        Pasajero p = null;
+        if(estaOcupado()==false){
+            for(int i=0; i<pasajeros.getIndicePas(); i++){
+                if(this.pasajeros.getPasajeros()[i] == p){
+                    pasajeros.getPasajeros()[pasajeros.getIndicePas()].getAsientos()[pasajeros.getIndicePas()].setNroasiento(nroasiento);
+                    result = true;
+                }
+            }
+        }
         
         return result;  
     }
     
     public boolean cancelarAsiento(){
         boolean result=false;
-        
+        if(this.reservarAsiento()==false){
+        result=true;
+        }
         return result;  
     }
     
@@ -73,7 +84,9 @@ public class Asiento {
     
     public boolean estaOcupado(){
         boolean result=false;
-        if(this.nroasiento==pasajeros.getPasajeros()[].)
+        if(this.nroasiento==pasajeros.getPasajeros()[pasajeros.getIndicePas()].getAsientos()[pasajeros.getIndicePas()].getNroasiento()){
+            result=true;
+        }
         return result;
     }
     

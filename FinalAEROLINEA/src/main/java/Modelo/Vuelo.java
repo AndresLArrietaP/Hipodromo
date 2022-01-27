@@ -7,6 +7,7 @@ public class Vuelo {
     private String hora;
     private int puertadeembarque;
     private boolean activo;
+    private PasajeroArreglo pasajeros = new PasajeroArreglo();
 
     public Vuelo(String codigo, String fecha, String hora, int puertadeembarque, boolean activo) {
         this.codigo = codigo;
@@ -44,6 +45,10 @@ public class Vuelo {
         return activo;
     }
 
+    public PasajeroArreglo getPasajeros() {
+        return pasajeros;
+    }
+    
     public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
@@ -63,7 +68,11 @@ public class Vuelo {
     public void setActivo(boolean activo) {
         this.activo = activo;
     }
-   
+
+    public void setPasajeros(PasajeroArreglo pasajeros) {
+        this.pasajeros = pasajeros;
+    }
+    
     public boolean venderAsiento(Pasajero p, int nroasiento, char fila){
         boolean result = false;
         

@@ -8,5 +8,6 @@ public class Repositorio {
     public static PaisArreglo apaisGeneral = new PaisArreglo();
     public static PasajeroArreglo apasajeroGeneral = new PasajeroArreglo();
     public static Aerolinea aerlineaGeneral = new Aerolinea();
+    public static Vuelo vueloGeneral = new Vuelo();
     
 }
