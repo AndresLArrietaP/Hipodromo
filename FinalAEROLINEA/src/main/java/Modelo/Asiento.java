@@ -5,6 +5,7 @@ public class Asiento {
     private int nroasiento;
     private char fila;
     private String estado;
+    private PasajeroArreglo pasajeros = new PasajeroArreglo();
 
     public Asiento(int nroasiento, char fila, String estado) {
         this.nroasiento = nroasiento;

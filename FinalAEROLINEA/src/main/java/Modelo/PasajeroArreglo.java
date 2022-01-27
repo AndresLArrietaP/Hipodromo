@@ -4,6 +4,7 @@ package Modelo;
 public class PasajeroArreglo {
     private int indicePas;
     private Pasajero pasajeros[];
+    private Pasajero pasajero;
 
     public PasajeroArreglo() {
         this.indicePas = indicePas;
@@ -21,6 +22,10 @@ public class PasajeroArreglo {
 
     public Pasajero[] getPasajeros() {
         return pasajeros;
+    }
+    
+    public Pasajero getPasajero(String tipoDoc, String nroDoc) {
+        return pasajero;
     }
 
     public void setIndicePas(int indicePas) {

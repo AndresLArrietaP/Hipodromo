@@ -1,9 +1,12 @@
 
 package Modelo;
+import static Datos.Repositorio.*;
 
 public class Aerolinea {
     private String nombre;
     private String RUC;
+    private Vuelo vuelos[];
+    private PasajeroArreglo pasajeros = new PasajeroArreglo();
 
     public Aerolinea(String nombre, String RUC) {
         this.nombre = nombre;
@@ -32,14 +35,17 @@ public class Aerolinea {
     }
     
     public Vuelo[] getVuelosActivos(){
-        Vuelo[] vuelo = null;
-        
-        return vuelo;
+        for(int i=0; i<this.vuelos.length;i++){
+        if(this.vuelos[this.vuelos.length].isActivo()==true){
+            return vuelos;
+        }
+        }
+        return vuelos;
     }
     
     public Pasajero[] getPasajerosPorVuelo(Vuelo v){
         Pasajero[] pasajeros = null;
-        
+        pasajeros[pasajeros.length].
         return pasajeros;
     }
     

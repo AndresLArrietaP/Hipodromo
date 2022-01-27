@@ -4,6 +4,7 @@ package Modelo;
 public class AeropuertoArreglo {
     private int indiceA;
     private Aeropuerto aeropuertos[];
+    private Aeropuerto aeropuerto;
 
     public AeropuertoArreglo() {
         this.indiceA=indiceA;
@@ -27,6 +28,10 @@ public class AeropuertoArreglo {
         return aeropuertos;
     }
 
+    public Aeropuerto getAeropuerto(Ciudad ciudad) {
+        return aeropuerto;
+    }
+    
     public void setIndiceA(int indiceA) {
         this.indiceA = indiceA;
     }
@@ -44,12 +49,6 @@ public class AeropuertoArreglo {
         this.indiceA++;
         result = true;
         return result;
-    }
-    
-    public Aeropuerto getAeropuerto(Ciudad ciudad){
-        Aeropuerto aeropuerto = null;
-      
-        return aeropuerto;
     }
     
     private boolean estaLlenoAeropuerto(){

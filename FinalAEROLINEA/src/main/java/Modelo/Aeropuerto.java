@@ -44,13 +44,15 @@ public class Aeropuerto {
     
     public boolean activar(){
         boolean result = false;
-        
+        this.estado=true;
+        result=true;
         return result; 
     }
     
     public boolean suspender(){
         boolean result = false;
-        
+        this.estado=false;
+        result=true;
         return result; 
     }
     

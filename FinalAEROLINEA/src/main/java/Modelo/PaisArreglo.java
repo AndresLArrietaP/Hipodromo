@@ -4,6 +4,7 @@ package Modelo;
 public class PaisArreglo {
     private int indiceP;
     private Pais paises[];
+    private Pais pais;
 
     public PaisArreglo() {
         this.indiceP=indiceP;
@@ -23,8 +24,8 @@ public class PaisArreglo {
         return paises;
     }
     
-    public Pais[] getPaises(String codigo) {
-        return paises;
+    public Pais getPaises(String codigo) {
+        return pais;
     }
 
     public void setIndiceP(int indiceP) {
