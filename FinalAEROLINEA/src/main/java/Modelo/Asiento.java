@@ -90,5 +90,9 @@ public class Asiento {
         return result;
     }
     
+     @Override
+    public String toString() {
+        return "\tNro asiento: \t" + this.nroasiento + "\n\tFila: \t" + this.fila+ "\n\tEstado: \t" + this.estado;
+    }
     
 }

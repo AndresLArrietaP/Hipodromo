@@ -83,5 +83,10 @@ public class Pasajero {
         return result;
     }
     
+    @Override
+    public String toString() {
+        return "\tTipo documento: \t" + this.tipodocumento + "\n\tNro documento: \t" + this.nrodocumento+ "\n\tNombres: \t" + this.nombres + "\n\tApellidos: \t" + this.apellidos
+                + "\n\tFecha de nacimiento: \t"+ this.fechaNacimiento + "\n\tAsientos: \t" + this.asientos.toString();
+    }
     
 }

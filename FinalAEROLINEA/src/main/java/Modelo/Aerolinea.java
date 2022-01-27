@@ -46,12 +46,14 @@ public class Aerolinea {
     }
     
     public Pasajero[] getPasajerosPorVuelo(Vuelo v){
-        Pasajero[] pasajeros = null;
+        Pasajero[] pasajerosPV = null;
         v.getPasajeros().getIndicePas();
         for(int i=0; i<this.pasajeros.getIndicePas();i++){
-        this.pasajeros==pasajeros[v.getPasajeros().getIndicePas()];
+        if(v.getPasajeros().getPasajeros()==pasajerosPV){
+            return pasajerosPV;
         }
-        return pasajeros;
+        }
+        return pasajerosPV;
     }
     
     public Vuelo[] getVuelosPorCiudad(Ciudad ciudad, String fecha){
