@@ -5,6 +5,7 @@ public class Aeropuerto {
     private String nombre;
     private String direccion;
     private boolean estado;
+    private Ciudad ciudad;
 
     public Aeropuerto(String nombre, String direccion, boolean estado) {
         this.nombre = nombre;
@@ -30,6 +31,10 @@ public class Aeropuerto {
         return estado;
     }
 
+    public Ciudad getCiudad() {
+        return ciudad;
+    }
+    
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
@@ -40,6 +45,10 @@ public class Aeropuerto {
 
     public void setEstado(boolean estado) {
         this.estado = estado;
+    }
+
+    public void setCiudad(Ciudad ciudad) {
+        this.ciudad = ciudad;
     }
     
     public boolean activar(){

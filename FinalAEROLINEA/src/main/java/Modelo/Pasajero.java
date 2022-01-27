@@ -75,10 +75,13 @@ public class Pasajero {
     
     public boolean comprar(Vuelo vuelo,char fila , int nroasiento){
         boolean result=false;
+        
         if(this.getAsientos()[this.asientos.length].reservarAsiento()==false){
-        for(int i=0; i<this.asientos.length;i++){
-        this.getAsientos()[this.asientos.length].getFila()==fila;
-        }
+            for(int i=0; i<this.asientos.length;i++){
+                Pasajero p=vuelo.getPasajeros().getPasajeros()[this.asientos.length];
+            vuelo.reservarAsiento(nroasiento, fila);
+            vuelo.venderAsiento(p, nroasiento, fila);
+                }
         }
         return result;
     }

@@ -60,6 +60,7 @@ public class Asiento {
             for(int i=0; i<pasajeros.getIndicePas(); i++){
                 if(this.pasajeros.getPasajeros()[i] == p){
                     pasajeros.getPasajeros()[pasajeros.getIndicePas()].getAsientos()[pasajeros.getIndicePas()].setNroasiento(nroasiento);
+                    this.estado="Reservado";
                     result = true;
                 }
             }
@@ -71,6 +72,7 @@ public class Asiento {
     public boolean cancelarAsiento(){
         boolean result=false;
         if(this.reservarAsiento()==false){
+            this.estado="Disponible";
         result=true;
         }
         return result;  
@@ -78,7 +80,17 @@ public class Asiento {
     
     public boolean venderAsiento(){
         boolean result=false;
-        
+        Pasajero p = null;
+        Asiento[] a = null;
+        if(estaOcupado()==false){
+            for(int i=0; i<pasajeros.getIndicePas(); i++){
+                if(this.pasajeros.getPasajeros()[i] == p){
+                    pasajeros.getPasajeros()[pasajeros.getIndicePas()].setAsientos(a);
+                    this.estado="Vendido";
+                    result = true;
+                }
+            }
+        }
         return result;  
     }   
     
