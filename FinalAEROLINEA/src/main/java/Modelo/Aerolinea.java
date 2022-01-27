@@ -36,4 +36,18 @@ public class Aerolinea {
         
         return vuelo;
     }
+    
+    public Pasajero[] getPasajerosPorVuelo(Vuelo v){
+        Pasajero[] pasajeros = null;
+        
+        return pasajeros;
+    }
+    
+    public Vuelo[] getVuelosPorCiudad(Ciudad ciudad, String fecha){
+        Vuelo[] vuelos = null;
+        
+        return vuelos;
+    }
+    
+    
 }
