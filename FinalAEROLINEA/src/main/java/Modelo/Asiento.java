@@ -1,5 +1,6 @@
 
 package Modelo;
+import static Datos.Repositorio.*;
 
 public class Asiento {
     private int nroasiento;
@@ -31,6 +32,11 @@ public class Asiento {
         return estado;
     }
 
+    public PasajeroArreglo getPasajeros() {
+        return pasajeros;
+    }
+
+    
     public void setNroasiento(int nroasiento) {
         this.nroasiento = nroasiento;
     }
@@ -41,6 +47,10 @@ public class Asiento {
 
     public void setEstado(String estado) {
         this.estado = estado;
+    }
+
+    public void setPasajeros(PasajeroArreglo pasajeros) {
+        this.pasajeros = pasajeros;
     }
     
     public boolean reservarAsiento(){
@@ -60,6 +70,12 @@ public class Asiento {
         
         return result;  
     }   
+    
+    public boolean estaOcupado(){
+        boolean result=false;
+        if(this.nroasiento==pasajeros.getPasajeros()[].)
+        return result;
+    }
     
     
 }

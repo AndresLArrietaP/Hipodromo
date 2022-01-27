@@ -7,6 +7,7 @@ public class Pasajero {
     private String nombres;
     private String apellidos;
     private String fechaNacimiento;
+    private Asiento asientos[];
 
     public Pasajero(String tipodocumento, String nrodocumento, String nombres, String apellidos, String fechaNacimiento) {
         this.tipodocumento = tipodocumento;
@@ -44,6 +45,10 @@ public class Pasajero {
         return fechaNacimiento;
     }
 
+    public Asiento[] getAsientos() {
+        return asientos;
+    }
+    
     public void setTipodocumento(String tipodocumento) {
         this.tipodocumento = tipodocumento;
     }
@@ -63,10 +68,18 @@ public class Pasajero {
     public void setFechaNacimiento(String fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
+
+    public void setAsientos(Asiento[] asientos) {
+        this.asientos = asientos;
+    }
     
     public boolean comprar(Vuelo vuelo,char fila , int nroasiento){
         boolean result=false;
-        
+        if(this.getAsientos()[this.asientos.length].reservarAsiento()==false){
+        for(int i=0; i<this.asientos.length;i++){
+        this.getAsientos()[this.asientos.length].getFila()==fila;
+        }
+        }
         return result;
     }
     
