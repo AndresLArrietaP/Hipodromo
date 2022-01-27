@@ -58,7 +58,9 @@ public class Aerolinea {
     
     public Vuelo[] getVuelosPorCiudad(Ciudad ciudad, String fecha){
         Vuelo[] vuelos = null;
-        
+        for(int i=0; i<this.vuelos.length;i++){
+        ciudad.getVuelo()[vuelos.length].getFecha().equals(fecha);
+        }
         return vuelos;
     }
     

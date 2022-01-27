@@ -1,6 +1,8 @@
 
 package Modelo;
 
+import java.io.*;
+import static Datos.Repositorio.*;
 public class Vuelo {
     private String codigo;
     private String fecha;
@@ -8,6 +10,9 @@ public class Vuelo {
     private int puertadeembarque;
     private boolean activo;
     private PasajeroArreglo pasajeros = new PasajeroArreglo();
+    private PaisArreglo paises =  new PaisArreglo();
+    private AeropuertoArreglo aeropuertos = new AeropuertoArreglo();
+    private Aerolinea aerolinea;
 
     public Vuelo(String codigo, String fecha, String hora, int puertadeembarque, boolean activo) {
         this.codigo = codigo;
@@ -47,6 +52,14 @@ public class Vuelo {
 
     public PasajeroArreglo getPasajeros() {
         return pasajeros;
+    }
+
+    public PaisArreglo getPaises() {
+        return paises;
+    }
+
+    public AeropuertoArreglo getAeropuertos() {
+        return aeropuertos;
     }
     
     public void setCodigo(String codigo) {
@@ -122,8 +135,56 @@ public class Vuelo {
     
     public Pasajero[] getListaPasajeros(){
         Pasajero[] pasajero= null;
+        for(int i=0; i<pasajero.length;i++){
+            this.getPasajeros();
+        }
         
         return pasajero;
+    }
+    
+    public void guardar(){
+        File f = new File("DatosDelSistema");
+        try{
+            f.delete();
+            File fos = new File("DatosDelSistema");
+            FileOutputStream archivo = new FileOutputStream(fos);
+            ObjectOutputStream oos = new ObjectOutputStream(archivo);
+            oos.writeObject(vueloGeneral);
+        }catch(Exception e){
+            System.out.println("ERROR: ");
+            System.err.println(e);
+        }
+    }
+    
+    public void recuperar(){
+        try{
+            FileInputStream archivo = new FileInputStream("DatosDelSistema");
+            ObjectInputStream ois = new ObjectInputStream(archivo);
+            vueloGeneral = (Vuelo)ois.readObject();
+            archivo.close();
+        }catch(FileNotFoundException e){
+            System.out.println("Se ha creado un archivo");
+            File fos = new File("DatosDelSistema");
+            System.err.println(e);
+            try{
+                FileOutputStream archivoA = new FileOutputStream(fos);
+                ObjectOutputStream oos = new ObjectOutputStream(archivoA);
+                oos.writeObject(vueloGeneral);
+            }catch(FileNotFoundException h){
+                System.err.println(e);
+            }catch(IOException h){
+                System.err.println(e);
+            }
+        }catch(IOException e){
+            System.err.println(e);
+        }catch(Exception e){
+            System.err.println(e);
+        }
+    }
+    @Override
+    public String toString() {
+        return "Vuelo: \t" + "\nCodigo: \t" + this.codigo + "\nFecha: \t" + this.fecha + "\nHora: \t" + this.hora + "\nPuertadeembarque: \t" + this.puertadeembarque + "\nActivo: \t" + this.activo 
+                + "\nPasajeros: \t" + this.pasajeros ;
     }
     
 }

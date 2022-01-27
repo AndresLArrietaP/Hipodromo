@@ -6,6 +6,7 @@ public class Ciudad {
     private String nombre;
     private Aeropuerto aeropuerto;
     private Pais pais;
+    private Vuelo vuelo[];
 
     public Ciudad(String codigo, String nombre) {
         this.codigo = codigo;
@@ -32,6 +33,10 @@ public class Ciudad {
     public Pais getPais() {
         return pais;
     }
+
+    public Vuelo[] getVuelo() {
+        return vuelo;
+    }
     
     public void setCodigo(String codigo) {
         this.codigo = codigo;
@@ -47,6 +52,10 @@ public class Ciudad {
 
     public void setPais(Pais pais) {
         this.pais = pais;
+    }
+
+    public void setVuelo(Vuelo[] vuelo) {
+        this.vuelo = vuelo;
     }
     
     public Aeropuerto getAeropuertos(String codCiudad){
