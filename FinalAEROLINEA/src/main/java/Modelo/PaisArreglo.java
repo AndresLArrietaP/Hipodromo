@@ -24,7 +24,9 @@ public class PaisArreglo {
         return paises;
     }
     
-    public Pais getPaises(String codigo) {
+    public Pais getPais(String codigo) {
+        Pais pais=null;
+       pais.getCodigo().equals(codigo); 
         return pais;
     }
 

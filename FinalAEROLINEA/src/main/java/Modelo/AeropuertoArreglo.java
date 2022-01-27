@@ -25,10 +25,17 @@ public class AeropuertoArreglo {
     }
     
     public Aeropuerto[] getAeropuertos(Pais pais) {
+        Aeropuerto[] aeropuertos = null;
+        for(int i=0; i<aeropuertos.length; i++){
+        aeropuertos[aeropuertos.length].getCiudad().getPais().equals(pais);
+        }
         return aeropuertos;
     }
 
     public Aeropuerto getAeropuerto(Ciudad ciudad) {
+        Aeropuerto aeropuerto = null;
+        aeropuerto.getCiudad().equals(ciudad);
+        
         return aeropuerto;
     }
     

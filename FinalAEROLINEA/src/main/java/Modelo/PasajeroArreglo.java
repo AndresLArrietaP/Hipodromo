@@ -25,6 +25,10 @@ public class PasajeroArreglo {
     }
     
     public Pasajero getPasajero(String tipoDoc, String nroDoc) {
+        Pasajero pasajero=null;
+        if(pasajero.getNrodocumento().equals(nroDoc)&& pasajero.getTipodocumento().equals(tipoDoc)){
+        return pasajero;
+        }
         return pasajero;
     }
 
