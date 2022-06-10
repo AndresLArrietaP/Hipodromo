@@ -7,12 +7,17 @@ package analexflexx;
  */
 public enum Tokens {
     Reservadas,
-    Igual,
-    Suma,
-    Resta,
-    Multiplicacion,
-    Division,
+    OperadorIgual,
+    OperadorSuma,
+    OperadorResta,
+    OperadorMultiplicacion,
+    OperadorDivision,
     Identificador,
     Numero,
+    Matricula1,
+    Matricula2,
+    Matricula3,
+    DNI,
+    Credito,
     ERROR
 }

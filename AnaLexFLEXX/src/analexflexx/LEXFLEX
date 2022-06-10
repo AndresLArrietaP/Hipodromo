@@ -4,8 +4,9 @@ import static analexflexx.Tokens.*;
 %class Lexer
 %type Tokens
 L=[a-zA-Z_]+
+S=[a-zA-Z_]
 D=[0-9]+
-C=["CRE:"]+
+N=[0-9]
 espacio=[ ,\t,\r,\n]+
 %{
     public String lexeme;
@@ -17,15 +18,21 @@ else |
 for |
 do |
 while |
+
 while {lexeme=yytext(); return Reservadas;}
+{N}{N}{N}{N}{N}{N}{N}{N}{S} {lexeme=yytext(); return DNI;}
+{N}{N}"M"{N}{N}{N}{N} {lexeme=yytext(); return Matricula1;}
+{L}{N}{N}{N} {lexeme=yytext(); return Matricula2;}
+{N}{N}{N}{N}{N}{N} {lexeme=yytext(); return Matricula3;}
+"CRE:"{N}{N} {lexeme=yytext(); return Credito;}
+"CRE:"{N} {lexeme=yytext(); return Credito;}
 {espacio} {/*Ignore*/}
 "//".* {/*Ignore*/}
-"=" {return Igual;}
-"+" {return Suma;}
-"-" {return Resta;}
-"*" {return Multiplicacion;}
-"/" {return Division;}
+"=" {return OperadorIgual;}
+"+" {return OperadorSuma;}
+"-" {return OperadorResta;}
+"*" {return OperadorMultiplicacion;}
+"/" {return OperadorDivision;}
 {L}({L}|{D})* {lexeme=yytext(); return Identificador;}
-{C}{lexeme=yytext(); return Literal;}
 ("(-"{D}+")")|{D}+ {lexeme=yytext(); return Numero;}
  . {return ERROR;}
