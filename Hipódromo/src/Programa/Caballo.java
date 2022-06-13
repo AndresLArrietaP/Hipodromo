@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package Programa;
 
 /**
@@ -9,10 +6,10 @@ package Programa;
  * @author acer
  */
 public class Caballo {
-    String nombre_cab;
-    Double peso;
-    int edad;
-    String raza;
+    private String nombre_cab;
+    private Double peso;
+    private int edad;
+    private String raza;
 
     public Caballo(String nombre_cab, Double peso, int edad, String raza) {
         this.nombre_cab = nombre_cab;
