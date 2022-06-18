@@ -1,12 +1,12 @@
 
 package Programa;
 import App.Configuracion;
-
+import java.io.*;
 /**
  *
  * @author acer
  */
-public class ArregloCarrera {
+public class ArregloCarrera implements Serializable{
     private Carrera carreras[];
     private int indiceCar;
     

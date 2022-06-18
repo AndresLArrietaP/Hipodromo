@@ -1,17 +1,24 @@
 
 package Programa;
-
+import java.io.*;
 /**
  *
  * @author acer
  */
-public class Caballo {
+public class Caballo implements Serializable{
     private String nombre_cab;
     private Double peso;
     private int edad;
     private String raza;
 
     public Caballo(String nombre_cab, Double peso, int edad, String raza) {
+        this.nombre_cab = nombre_cab;
+        this.peso = peso;
+        this.edad = edad;
+        this.raza = raza;
+    }
+    
+    public Caballo() {
         this.nombre_cab = nombre_cab;
         this.peso = peso;
         this.edad = edad;

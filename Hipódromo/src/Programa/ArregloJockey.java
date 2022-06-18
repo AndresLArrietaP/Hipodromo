@@ -1,15 +1,21 @@
 
 package Programa;
 import App.Configuracion;
+import java.io.*;
 /**
  *
  * @author acer
  */
-public class ArregloJockey {
+public class ArregloJockey implements Serializable{
     private Jockey jockeys[];
     private int indiceJock;
 
     public ArregloJockey(Jockey[] jockeys, int indiceJock) {
+        this.jockeys = new Jockey[Configuracion.numMinJockeys];
+        this.indiceJock = indiceJock;
+    }
+    
+    public ArregloJockey() {
         this.jockeys = new Jockey[Configuracion.numMinJockeys];
         this.indiceJock = indiceJock;
     }

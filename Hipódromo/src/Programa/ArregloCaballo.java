@@ -1,11 +1,12 @@
 
 package Programa;
 import App.Configuracion;
+import java.io.*;
 /**
  *
  * @author acer
  */
-public class ArregloCaballo {
+public class ArregloCaballo implements Serializable{
     private Caballo caballos[];
     private int indiceCab;
     

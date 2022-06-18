@@ -1,0 +1,18 @@
+
+package Datos;
+import Programa.*;
+/**
+ *
+ * @author acer
+ */
+public class Repositorio {
+    public static Caballo caballoGenerico = new Caballo();
+    public static ArregloCaballo acaballoGenerico = new ArregloCaballo();
+    public static Jockey jockeyGenerico = new Jockey();
+    public static Jockey jockeyAuxiliar= new Jockey();
+    public static ArregloJockey ajockeyGenerico = new ArregloJockey();
+    public static Carrera carreraGenerica = new Carrera();
+    public static Carrera carreraActiva = new Carrera();
+    public static ArregloCarrera acarreraGenerica = new ArregloCarrera();
+    public static ArchivosSistema sistemA = new ArchivosSistema();
+}
