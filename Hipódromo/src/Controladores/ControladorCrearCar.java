@@ -52,6 +52,97 @@ public class ControladorCrearCar {
                 }
             }
         });
+        
+        this.vistaCarrera.btnPart.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+                if(editarRegistro == false){
+                    guardarDatos(carreraGenerica);
+                    for(int i=0; i<carreraGenerica.getNumeroPart();i++){
+                        if(i==carreraGenerica.getNumeroPart()-1){
+                            jockeyGenerico = new Jockey();
+                            frmJockeysCaballos vistaJockeyCaballo = new frmJockeysCaballos();
+                            ControladorJockeysCaballos controlJockeyCab = new ControladorJockeysCaballos(vistaJockeyCaballo,i);
+                            vistaCarrera.dispose();
+                            controlJockeyCab.iniciarUlt(i);
+                        }else{
+                            jockeyGenerico = new Jockey();
+                            frmJockeysCaballos vistaJockeyCaballo = new frmJockeysCaballos();
+                            ControladorJockeysCaballos controlJockeyCab = new ControladorJockeysCaballos(vistaJockeyCaballo,i);
+                            vistaCarrera.dispose();
+                            controlJockeyCab.iniciar(i);
+                        }
+                    }
+                }
+                else{
+                    guardarDatos(carreraGenerica);
+                    for(int i=0; i<carreraGenerica.getNumeroPart()-1;i++){
+                        if(i==carreraGenerica.getNumeroPart()-1){
+                            jockeyGenerico = new Jockey();
+                            frmJockeysCaballos vistaJockeyCaballo = new frmJockeysCaballos();
+                            ControladorJockeysCaballos controlJockeyCab = new ControladorJockeysCaballos(vistaJockeyCaballo,i);
+                            vistaCarrera.dispose();
+                            controlJockeyCab.iniciarEditarUlt(i);
+                        }else{
+                            jockeyGenerico = new Jockey();
+                            frmJockeysCaballos vistaJockeyCaballo = new frmJockeysCaballos();
+                            ControladorJockeysCaballos controlJockeyCab = new ControladorJockeysCaballos(vistaJockeyCaballo,i);
+                            vistaCarrera.dispose();
+                            controlJockeyCab.iniciarEditar(i);
+                        }
+                    }
+                }
+            }
+        });
+        
+        this.vistaCarrera.btnRegistrar.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+                guardarDatos(carreraGenerica);
+                if(casillasCompletas()){
+                    if(editarRegistro == false){
+                        if(numerosCorrectos()){
+                            sistemA.getCarreras().agregarCarrera(carreraGenerica);
+                            carreraGenerica = new Carrera();
+                            sistemA.guardar();
+                        }
+                        else{
+                            JOptionPane.showMessageDialog(null, "El número de carrera ya está en\nuso o ha sido ingresado incorrectamente");
+                        }
+                    }
+                    else{
+                        if(sistemA.getCarreras().eliminarCarreraN(carreraActiva.getNumero_car())){
+                            if(numerosCorrectos() == true){
+                                /*if()){
+                                    //Apuestas
+                                }*/
+                                sistemA.getCarreras().agregarCarrera(carreraGenerica);
+                                frmApuesta vistaApuesta = new frmApuesta();
+                                ControladorApuesta controlApuesta = new ControladorApuesta(vistaApuesta);
+                                sistemA.guardar();
+                                carreraActiva = carreraGenerica;
+                                vistaCarrera.dispose();
+                                controlApuesta.iniciar();
+                            }
+                            else{
+                                sistemA.getCarreras().agregarCarrera(carreraActiva);
+                                /*if(){
+                                    //Apuesta
+                                }*/
+                                JOptionPane.showMessageDialog(null, "No se pudo concretar el guardado porque el número de carrera ya está en\nuso o ha sido ingresado incorrectamente");
+                            }
+                        }
+                        else{
+                            JOptionPane.showMessageDialog(null, "No se pudieron guardar los datos");
+                        }
+                    }
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "No se han completado todos los recuadros necesarios");
+                }
+            }
+        });
+        
     
     }
     public void iniciar() {
@@ -66,6 +157,7 @@ public class ControladorCrearCar {
         vistaCarrera.setLocationRelativeTo(null);
         vistaCarrera.lblTitulo.setText("EDITAR CARRERA");
         vistaCarrera.btnSalir.setVisible(false);
+        vistaCarrera.btnPart.setText("EDITAR PARTICIPANTES");
         vistaCarrera.btnRegistrar.setText("GUARDAR");
         vistaCarrera.setVisible(true);
         this.editarRegistro = true;
@@ -83,5 +175,47 @@ public class ControladorCrearCar {
         vistaCarrera.txtPart.setText(Integer.toString(c.getNumeroPart()));
         vistaCarrera.cobDist.setName(Integer.toString(c.getDistancia()));
         //Agregar
+    }
+    
+    public void guardarDatos(Carrera c){
+        try{
+            c.setNumero_car(Integer.parseInt(vistaCarrera.txtNumero.getText()));
+            c.setNumeroPart(Integer.parseInt(vistaCarrera.txtPart.getText()));
+            
+        }catch(Exception e){       
+        }
+    }
+    
+    public boolean numerosCorrectos(){
+        boolean result = false;
+        boolean existeNumero = false;
+        try{
+            int Numero = Integer.parseInt(vistaCarrera.txtNumero.getText());
+            for(int i=0; i<sistemA.getCarreras().getIndiceCar(); i++){
+                if(sistemA.getCarreras().getCarreras()[i].getNumero_car()==Numero){
+                    existeNumero = true;
+                }
+            }
+            if(existeNumero==false){
+                result = true;
+            }
+        }catch(Exception e){
+            System.err.println(e);
+        }finally{
+            return result;
+        }
+    }
+    
+   /* public boolean reemplazarEnSistema(Carrera c){
+        //Apuestas
+    }*/
+    
+    public boolean casillasCompletas(){
+        boolean result = false;
+        if (this.vistaCarrera.txtNumero.getText().length()!=0 &&
+            this.vistaCarrera.txtPart.getText().length()!=0){
+            result = true;
+        }
+        return result;
     }
 }

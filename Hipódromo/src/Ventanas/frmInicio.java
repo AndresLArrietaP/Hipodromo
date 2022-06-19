@@ -27,75 +27,30 @@ public class frmInicio extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        btnCrearCar = new javax.swing.JButton();
-        btnVerApostar = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         btnSalir = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        btnCrearCar = new javax.swing.JButton();
+        btnVerApostar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 204, 102));
-
-        jLabel1.setFont(new java.awt.Font("Santa Eliza Personal Use", 0, 36)); // NOI18N
-        jLabel1.setText("HIPODROMO ");
+        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(162, 162, 162)
-                .addComponent(jLabel1)
-                .addContainerGap(160, Short.MAX_VALUE))
+            .addGap(0, 960, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jLabel1)
-                .addContainerGap(32, Short.MAX_VALUE))
+            .addGap(0, 50, Short.MAX_VALUE)
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 510, -1));
-
-        jPanel2.setBackground(new java.awt.Color(255, 204, 102));
-
-        btnCrearCar.setBackground(new java.awt.Color(204, 255, 153));
-        btnCrearCar.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
-        btnCrearCar.setText("Crear carrera");
-
-        btnVerApostar.setBackground(new java.awt.Color(255, 255, 102));
-        btnVerApostar.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
-        btnVerApostar.setText("Ver carrera y apostar");
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(171, 171, 171)
-                        .addComponent(btnCrearCar))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(136, 136, 136)
-                        .addComponent(btnVerApostar)))
-                .addContainerGap(143, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addComponent(btnCrearCar, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47)
-                .addComponent(btnVerApostar, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 66, 510, 320));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 50));
 
         jPanel3.setBackground(new java.awt.Color(255, 204, 153));
 
@@ -107,10 +62,10 @@ public class frmInicio extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(206, 206, 206)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(445, Short.MAX_VALUE)
                 .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(231, Short.MAX_VALUE))
+                .addGap(442, 442, 442))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -120,7 +75,26 @@ public class frmInicio extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 382, 510, -1));
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 580, 960, -1));
+
+        jLabel2.setFont(new java.awt.Font("Santa Eliza Personal Use", 0, 48)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(204, 255, 255));
+        jLabel2.setText("HIPODROMO DE MONTERRICO");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, 590, 50));
+
+        btnCrearCar.setBackground(new java.awt.Color(204, 255, 204));
+        btnCrearCar.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
+        btnCrearCar.setText("Crear carrera");
+        getContentPane().add(btnCrearCar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 480, -1, -1));
+
+        btnVerApostar.setBackground(new java.awt.Color(255, 255, 153));
+        btnVerApostar.setFont(new java.awt.Font("Arial", 0, 30)); // NOI18N
+        btnVerApostar.setText("Ver carreras y apostar");
+        getContentPane().add(btnVerApostar, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 480, -1, -1));
+
+        jLabel1.setFont(new java.awt.Font("Santa Eliza Personal Use", 0, 36)); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/ImagenPrincipal.jpg"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 960, 530));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -165,8 +139,8 @@ public class frmInicio extends javax.swing.JFrame {
     public javax.swing.JButton btnSalir;
     public javax.swing.JButton btnVerApostar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     // End of variables declaration//GEN-END:variables
 }

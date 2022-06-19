@@ -7,11 +7,11 @@ import java.io.*;
  */
 public class Caballo implements Serializable{
     private String nombre_cab;
-    private Double peso;
+    private float peso;
     private int edad;
     private String raza;
 
-    public Caballo(String nombre_cab, Double peso, int edad, String raza) {
+    public Caballo(String nombre_cab, float peso, int edad, String raza) {
         this.nombre_cab = nombre_cab;
         this.peso = peso;
         this.edad = edad;
@@ -19,10 +19,6 @@ public class Caballo implements Serializable{
     }
     
     public Caballo() {
-        this.nombre_cab = nombre_cab;
-        this.peso = peso;
-        this.edad = edad;
-        this.raza = raza;
     }
 
     public String getNombre_cab() {
@@ -33,11 +29,11 @@ public class Caballo implements Serializable{
         this.nombre_cab = nombre_cab;
     }
 
-    public Double getPeso() {
+    public float getPeso() {
         return peso;
     }
 
-    public void setPeso(Double peso) {
+    public void setPeso(float peso) {
         this.peso = peso;
     }
 

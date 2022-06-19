@@ -44,7 +44,7 @@ public class ArregloCarrera implements Serializable{
         return result;
     }
     
-    /*public boolean eliminarCarreraN(int numero){
+    public boolean eliminarCarreraN(int numero){
         boolean result = false;
         if(estaVacioCarrera() == false){
             for(int i=0; i<this.indiceCar; i++){
@@ -59,7 +59,7 @@ public class ArregloCarrera implements Serializable{
             }
         }
         return result;
-    } */
+    } 
     
     public boolean eliminarCarrera(Carrera car){
         boolean result = false;
