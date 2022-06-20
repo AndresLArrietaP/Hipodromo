@@ -58,7 +58,7 @@ public class ControladorCrearCar {
             public void actionPerformed(ActionEvent e){
                 if(editarRegistro == false){
                     guardarDatos(carreraGenerica);
-                    for(int i=0; i<carreraGenerica.getNumeroPart();i++){
+                    int i=0;
                         if(i==carreraGenerica.getNumeroPart()-1){
                             jockeyGenerico = new Jockey();
                             frmJockeysCaballos vistaJockeyCaballo = new frmJockeysCaballos();
@@ -72,7 +72,7 @@ public class ControladorCrearCar {
                             vistaCarrera.dispose();
                             controlJockeyCab.iniciar(i);
                         }
-                    }
+                    
                 }
                 else{
                     guardarDatos(carreraGenerica);
@@ -129,7 +129,7 @@ public class ControladorCrearCar {
                                 /*if(){
                                     //Apuesta
                                 }*/
-                                JOptionPane.showMessageDialog(null, "No se pudo concretar el guardado porque el número de carrera ya está en\nuso o ha sido ingresado incorrectamente");
+                                JOptionPane.showMessageDialog(null, "No se pudo concretar el guardado porque el número de carrera ya está en\nuso o no está dentro del rango 1000-9999");
                             }
                         }
                         else{
@@ -181,7 +181,7 @@ public class ControladorCrearCar {
         try{
             c.setNumero_car(Integer.parseInt(vistaCarrera.txtNumero.getText()));
             c.setNumeroPart(Integer.parseInt(vistaCarrera.txtPart.getText()));
-            
+            c.setDistancia(Integer.parseInt((String)vistaCarrera.cobDist.getSelectedItem()));
         }catch(Exception e){       
         }
     }
@@ -189,6 +189,7 @@ public class ControladorCrearCar {
     public boolean numerosCorrectos(){
         boolean result = false;
         boolean existeNumero = false;
+        boolean limitnum = false;
         try{
             int Numero = Integer.parseInt(vistaCarrera.txtNumero.getText());
             for(int i=0; i<sistemA.getCarreras().getIndiceCar(); i++){
@@ -196,7 +197,10 @@ public class ControladorCrearCar {
                     existeNumero = true;
                 }
             }
-            if(existeNumero==false){
+            if(Numero>9999 || Numero<1000){
+                limitnum = true;
+            }
+            if((existeNumero==false)&&(limitnum==false)){
                 result = true;
             }
         }catch(Exception e){

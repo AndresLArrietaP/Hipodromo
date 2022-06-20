@@ -28,7 +28,7 @@ public class frmApuesta extends javax.swing.JFrame {
 
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        verCarrera = new javax.swing.JButton();
+        btnVerCarrera = new javax.swing.JButton();
         btnEditarCar = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         btnVolver = new javax.swing.JButton();
@@ -45,8 +45,8 @@ public class frmApuesta extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("CARRERA :");
 
-        verCarrera.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        verCarrera.setText("VER CARRERAS");
+        btnVerCarrera.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        btnVerCarrera.setText("VER CARRERAS");
 
         btnEditarCar.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         btnEditarCar.setText("EDITAR CARRERAS");
@@ -59,7 +59,7 @@ public class frmApuesta extends javax.swing.JFrame {
                 .addGap(41, 41, 41)
                 .addComponent(jLabel2)
                 .addGap(82, 82, 82)
-                .addComponent(verCarrera, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnVerCarrera, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(55, 55, 55)
                 .addComponent(btnEditarCar)
                 .addContainerGap(119, Short.MAX_VALUE))
@@ -74,7 +74,7 @@ public class frmApuesta extends javax.swing.JFrame {
                         .addGap(28, 28, 28))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(verCarrera, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnVerCarrera, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnEditarCar, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap())))
         );
@@ -181,12 +181,12 @@ public class frmApuesta extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnEditarCar;
     public javax.swing.JButton btnSalir;
+    public javax.swing.JButton btnVerCarrera;
     public javax.swing.JButton btnVolver;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    public javax.swing.JButton verCarrera;
     // End of variables declaration//GEN-END:variables
 }

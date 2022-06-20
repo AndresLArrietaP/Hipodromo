@@ -44,7 +44,7 @@
                   <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
-                  <Component id="verCarrera" min="-2" pref="156" max="-2" attributes="0"/>
+                  <Component id="btnVerCarrera" min="-2" pref="156" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
                   <Component id="btnEditarCar" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="119" max="32767" attributes="0"/>
@@ -62,7 +62,7 @@
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="verCarrera" alignment="3" min="-2" pref="64" max="-2" attributes="0"/>
+                              <Component id="btnVerCarrera" alignment="3" min="-2" pref="64" max="-2" attributes="0"/>
                               <Component id="btnEditarCar" alignment="3" min="-2" pref="64" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -84,7 +84,7 @@
             <Property name="text" type="java.lang.String" value="CARRERA :"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="verCarrera">
+        <Component class="javax.swing.JButton" name="btnVerCarrera">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial" size="14" style="0"/>

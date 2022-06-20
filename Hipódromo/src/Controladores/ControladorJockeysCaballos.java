@@ -51,7 +51,7 @@ public class ControladorJockeysCaballos {
         this.vistaJockeyCaballo.btnAgregar.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e){
-                if(num==carreraGenerica.getNumeroPart()){
+                if(num+1==carreraGenerica.getNumeroPart()){
                     Ultimo=true;
                 }
                 if(casillasCompletas()){
@@ -196,7 +196,7 @@ public class ControladorJockeysCaballos {
             if(Edad > 7){
                 limiedad = true;
             }
-            if((existeNombre==false) && (limiedad = false)){
+            if((existeNombre==false) && (limiedad == false)){
                 result = true;
             }
         }catch(Exception e){
