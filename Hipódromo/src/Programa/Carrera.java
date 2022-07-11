@@ -9,6 +9,7 @@ import java.io.*;
 public class Carrera implements Serializable{
     int numero_car;
     int numeroPart;
+    int numeroCab;
     int distancia;
     ArregloCaballo caballos;
     ArregloJockey jockeys; 
@@ -34,6 +35,10 @@ public class Carrera implements Serializable{
         return numeroPart;
     }
 
+    public int getNumeroCab() {
+        return numeroCab;
+    }
+    
     public int getDistancia() {
         return distancia;
     }
@@ -54,6 +59,10 @@ public class Carrera implements Serializable{
         this.numeroPart = numeroPart;
     }
 
+    public void setNumeroCab(int numeroCab) {
+        this.numeroCab = numeroCab;
+    }
+    
     public void setDistancia(int distancia) {
         this.distancia = distancia;
     }

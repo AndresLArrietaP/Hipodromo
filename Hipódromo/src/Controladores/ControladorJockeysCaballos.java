@@ -58,8 +58,7 @@ public class ControladorJockeysCaballos {
                     if(nombresyedadCorrectos()){
                         jockeyAuxiliar = new Jockey();
                         jockeyAuxiliar = jockeyGenerico;
-                        jockeyGenerico = new Jockey(vistaJockeyCaballo.txtNombreJ.getText(), Integer.parseInt(vistaJockeyCaballo.txtEdadJ.getText()),
-                                vistaJockeyCaballo.txtNombreC.getText(),Integer.valueOf(vistaJockeyCaballo.txtEdadC.getText()),Float.valueOf(vistaJockeyCaballo.txtPesoC.getText()),vistaJockeyCaballo.txtRazaC.getText());
+                        jockeyGenerico = new Jockey(vistaJockeyCaballo.txtNombreJ.getText(), Integer.parseInt(vistaJockeyCaballo.txtEdadJ.getText()));
                             if(editarJockeys == false){                               
                                 if(Ultimo==false){
                                     carreraGenerica.getJockeys().agregarJockey(jockeyGenerico);
@@ -73,7 +72,12 @@ public class ControladorJockeysCaballos {
                                     frmCrearCarrera vistaCrearCar = new frmCrearCarrera();
                                     ControladorCrearCar controlCrearCar = new ControladorCrearCar(vistaCrearCar);
                                     vistaJockeyCaballo.dispose();
-                                    controlCrearCar.iniciar();
+                                    
+                                    if(vistaCrearCar.btnCab.isEnabled()){
+                                        controlCrearCar.iniciarB2(false);
+                                    }else{
+                                        controlCrearCar.iniciarB3(true);
+                                    }
                                 }                              
                             }
                             else {                             
@@ -153,19 +157,19 @@ public class ControladorJockeysCaballos {
     public void setDatos(Jockey j){
         vistaJockeyCaballo.txtNombreJ.setText(j.getNombre());
         vistaJockeyCaballo.txtEdadJ.setText(Integer.toString(j.getEdad()));
-        vistaJockeyCaballo.txtNombreC.setName(j.getCaballo().getNombre_cab());
+        /*vistaJockeyCaballo.txtNombreC.setName(j.getCaballo().getNombre_cab());
         vistaJockeyCaballo.txtPesoC.setName(Double.toString(j.getCaballo().getPeso()));
         vistaJockeyCaballo.txtEdadC.setName(Integer.toString(j.getCaballo().getEdad()));
-        vistaJockeyCaballo.txtRazaC.setName(j.getCaballo().getRaza());
+        vistaJockeyCaballo.txtRazaC.setName(j.getCaballo().getRaza());*/
         //Agregar
     }
     public void limpiarVentana(){
         vistaJockeyCaballo.txtNombreJ.setText("");
         vistaJockeyCaballo.txtEdadJ.setText("");
-        vistaJockeyCaballo.txtNombreC.setText("");
+        /*vistaJockeyCaballo.txtNombreC.setText("");
         vistaJockeyCaballo.txtPesoC.setText("");
         vistaJockeyCaballo.txtEdadC.setText("");
-        vistaJockeyCaballo.txtRazaC.setText("");
+        vistaJockeyCaballo.txtRazaC.setText("");*/
     }
    /* public void guardarDatos(Jockey j){
         try{
@@ -185,18 +189,23 @@ public class ControladorJockeysCaballos {
         boolean result = false;
         boolean existeNombre = false;
         boolean limiedad = false;
+        boolean limiedad2 = false;
         try{
-            String Nombre = vistaJockeyCaballo.txtNombreC.getText();
-            int Edad = Integer.valueOf(vistaJockeyCaballo.txtEdadC.getText());
-            for(int i=0; i<sistemA.getJockeys().getIndiceJock(); i++){
+            /*String Nombre = vistaJockeyCaballo.txtNombreC.getText();
+            int EdadC = Integer.valueOf(vistaJockeyCaballo.txtEdadC.getText());*/
+            int EdadJ = Integer.valueOf(vistaJockeyCaballo.txtEdadJ.getText());
+            /*for(int i=0; i<sistemA.getJockeys().getIndiceJock(); i++){
                 if(sistemA.getJockeys().getJockeys()[i].getCaballo().getNombre_cab().equals(Nombre)){
                     existeNombre = true;
                 }
-            }
-            if(Edad > 7){
+            }*/
+            /*if(EdadC > 7){
                 limiedad = true;
+            }*/
+            if(EdadJ < 18  && EdadJ > 60){
+                limiedad2 = true;
             }
-            if((existeNombre==false) && (limiedad == false)){
+            if(/*(existeNombre==false) && (limiedad == false) &&*/ (limiedad2 == false)){
                 result = true;
             }
         }catch(Exception e){
@@ -213,11 +222,11 @@ public class ControladorJockeysCaballos {
     public boolean casillasCompletas(){
         boolean result = false;
         if (this.vistaJockeyCaballo.txtNombreJ.getText().length()!=0 &&
-            this.vistaJockeyCaballo.txtEdadJ.getText().length()!=0 &&
-            this.vistaJockeyCaballo.txtNombreC.getText().length()!=0 &&
+            this.vistaJockeyCaballo.txtEdadJ.getText().length()!=0)
+            /*this.vistaJockeyCaballo.txtNombreC.getText().length()!=0 &&
             this.vistaJockeyCaballo.txtPesoC.getText().length()!=0 &&
             this.vistaJockeyCaballo.txtEdadC.getText().length()!=0 &&
-            this.vistaJockeyCaballo.txtRazaC.getText().length()!=0){
+            this.vistaJockeyCaballo.txtRazaC.getText().length()!=0)*/{
             result = true;
         }
         return result;

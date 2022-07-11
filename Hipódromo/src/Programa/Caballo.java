@@ -19,6 +19,7 @@ public class Caballo implements Serializable{
     }
     
     public Caballo() {
+        this.raza = "";
     }
 
     public String getNombre_cab() {

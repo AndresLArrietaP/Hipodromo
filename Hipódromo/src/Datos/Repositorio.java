@@ -7,6 +7,7 @@ import Programa.*;
  */
 public class Repositorio {
     public static Caballo caballoGenerico = new Caballo();
+    public static Caballo caballoAuxiliar = new Caballo();
     public static ArregloCaballo acaballoGenerico = new ArregloCaballo();
     public static Jockey jockeyGenerico = new Jockey();
     public static Jockey jockeyAuxiliar= new Jockey();
