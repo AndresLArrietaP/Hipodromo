@@ -74,7 +74,7 @@ public class ControladorCaballos {
                                     ControladorCrearCar controlCrearCar = new ControladorCrearCar(vistaCrearCar);
                                     vistaCaballos.dispose();
                                     
-                                    if(vistaCrearCar.btnPart.isEnabled()){
+                                    if(carreraGenerica.getJockeys().getIndiceJock()==0){
                                         controlCrearCar.iniciarB2(true);
                                     }else{
                                         controlCrearCar.iniciarB3(true);

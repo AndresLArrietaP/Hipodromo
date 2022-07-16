@@ -8,12 +8,12 @@ package Ventanas;
  *
  * @author acer
  */
-public class frmTablaCarreras extends javax.swing.JFrame {
+public class frmTablaParticipantes extends javax.swing.JFrame {
 
     /**
      * Creates new form frmTablaCarreras
      */
-    public frmTablaCarreras() {
+    public frmTablaParticipantes() {
         initComponents();
     }
 
@@ -30,7 +30,7 @@ public class frmTablaCarreras extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblCarreras = new javax.swing.JTable();
+        tblParticipantes = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
         btnVolver = new javax.swing.JButton();
         btnverPart = new javax.swing.JButton();
@@ -43,16 +43,16 @@ public class frmTablaCarreras extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Bodoni MT Black", 1, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("CARRERAS");
+        jLabel1.setText("PARTICIPANTES");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(170, 170, 170)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(103, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addContainerGap(191, Short.MAX_VALUE))
+                .addGap(99, 99, 99))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -61,18 +61,18 @@ public class frmTablaCarreras extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 670, 60));
 
-        tblCarreras.setModel(new javax.swing.table.DefaultTableModel(
+        tblParticipantes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Número", "NroParticipantes", "Distancia"
+                "Nombre", "Edad", "Nombre Caballo", "Edad Caballo", "Peso Caballo", "Raza Caballo"
             }
         ));
-        jScrollPane1.setViewportView(tblCarreras);
+        jScrollPane1.setViewportView(tblParticipantes);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -101,6 +101,7 @@ public class frmTablaCarreras extends javax.swing.JFrame {
         btnverPart.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         btnverPart.setText("VER PARTICIPANTES");
 
+        btnActualizar.setBackground(new java.awt.Color(153, 255, 153));
         btnActualizar.setText("ACTUALIZAR");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -110,20 +111,23 @@ public class frmTablaCarreras extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addComponent(btnVolver)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 171, Short.MAX_VALUE)
-                .addComponent(btnActualizar)
-                .addGap(138, 138, 138)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 161, Short.MAX_VALUE)
+                .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(122, 122, 122)
                 .addComponent(btnverPart)
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(26, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnVolver)
-                    .addComponent(btnverPart)
-                    .addComponent(btnActualizar))
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnActualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(0, 15, Short.MAX_VALUE)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnVolver)
+                            .addComponent(btnverPart))))
                 .addContainerGap())
         );
 
@@ -149,20 +153,21 @@ public class frmTablaCarreras extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frmTablaCarreras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmTablaParticipantes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frmTablaCarreras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmTablaParticipantes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frmTablaCarreras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmTablaParticipantes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frmTablaCarreras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmTablaParticipantes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new frmTablaCarreras().setVisible(true);
+                new frmTablaParticipantes().setVisible(true);
             }
         });
     }
@@ -176,6 +181,6 @@ public class frmTablaCarreras extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    public javax.swing.JTable tblCarreras;
+    public javax.swing.JTable tblParticipantes;
     // End of variables declaration//GEN-END:variables
 }

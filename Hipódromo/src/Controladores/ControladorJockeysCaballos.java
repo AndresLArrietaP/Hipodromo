@@ -73,7 +73,7 @@ public class ControladorJockeysCaballos {
                                     ControladorCrearCar controlCrearCar = new ControladorCrearCar(vistaCrearCar);
                                     vistaJockeyCaballo.dispose();
                                     
-                                    if(vistaCrearCar.btnCab.isEnabled()){
+                                    if(carreraGenerica.getCaballos().getIndiceCab()==0){
                                         controlCrearCar.iniciarB2(false);
                                     }else{
                                         controlCrearCar.iniciarB3(true);
@@ -187,8 +187,8 @@ public class ControladorJockeysCaballos {
     
     public boolean nombresyedadCorrectos(){
         boolean result = false;
-        boolean existeNombre = false;
-        boolean limiedad = false;
+        //boolean existeNombre = false;
+        //boolean limiedad = false;
         boolean limiedad2 = false;
         try{
             /*String Nombre = vistaJockeyCaballo.txtNombreC.getText();

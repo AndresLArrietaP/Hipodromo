@@ -1,6 +1,8 @@
 
 package Datos;
 import Programa.*;
+import Ventanas.*;
+import Controladores.*;
 /**
  *
  * @author acer
@@ -16,4 +18,5 @@ public class Repositorio {
     public static Carrera carreraActiva = new Carrera();
     public static ArregloCarrera acarreraGenerica = new ArregloCarrera();
     public static ArchivosSistema sistemA = new ArchivosSistema();
+    
 }

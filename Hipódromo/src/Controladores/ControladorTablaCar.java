@@ -13,6 +13,7 @@ import javax.swing.*;
  */
 public class ControladorTablaCar {
     private frmTablaCarreras vistaTabCar;
+    private boolean editpart;
     
     public ControladorTablaCar(frmTablaCarreras vistaTabCar){
         this.vistaTabCar = vistaTabCar;
@@ -20,19 +21,71 @@ public class ControladorTablaCar {
         this.vistaTabCar.btnVolver.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e){
+
                     carreraGenerica = new Carrera();
                     frmApuesta vistaApuesta = new frmApuesta();
                     ControladorApuesta controlApuesta = new ControladorApuesta(vistaApuesta);
                     vistaTabCar.dispose();
-                    controlApuesta.iniciar();
+                    controlApuesta.iniciar();            
 
-                }            
+            }            
         });
         
         this.vistaTabCar.btnActualizar.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e){
                 setTablaCarreras(sistemA);
+            }
+        });
+        
+        this.vistaTabCar.btnverPart.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+                int pos=0;        
+                int fila = vistaTabCar.tblCarreras.getSelectedRow();
+                int columna = vistaTabCar.tblCarreras.getSelectedColumn();
+                if(editpart==false){
+                    if(fila>=0){
+                        String numero = vistaTabCar.tblCarreras.getValueAt(fila, 0).toString();
+                        for(int i=0; i<sistemA.getCarreras().getIndiceCar(); i++){
+                            //if(sistem.getObjetos().getProducs()[i].getUsuario() == usuarioActivo){
+                                if(sistemA.getCarreras().getCarreras()[i].getNumero_car()==Integer.parseInt(numero)){
+                                    pos=i;
+                                    //carreraGenerica = new Carrera();
+
+                                    frmCrearCarrera vistaCrearCar = new frmCrearCarrera();
+                                    ControladorCrearCar controlCrearCar= new ControladorCrearCar(vistaCrearCar);
+                                    vistaTabCar.dispose();
+                                    controlCrearCar.iniciarEditar();                            
+                                }
+                            //}
+                        }
+                    }
+                    else{                  
+                        JOptionPane.showMessageDialog(null, "No se ha seleccionado un producto para editar");                   
+                    }
+                }else{
+                    if(fila>=0){
+                        String numero = vistaTabCar.tblCarreras.getValueAt(fila, 0).toString();
+                        for(int i=0; i<sistemA.getCarreras().getIndiceCar(); i++){
+                            //if(sistem.getObjetos().getProducs()[i].getUsuario() == usuarioActivo){
+                                if(sistemA.getCarreras().getCarreras()[i].getNumero_car()==Integer.parseInt(numero)){
+                                    pos=i;
+                                    //carreraGenerica = new Carrera();
+
+                                    frmTablaParticipantes vistaTabPart = new frmTablaParticipantes();
+                                    ControladorTablaPart controlTabPart = new ControladorTablaPart(vistaTabPart,pos);
+                                    vistaTabCar.dispose();
+                                    controlTabPart.iniciar();                            
+                                }
+                            //}
+                        }
+                    }
+                    else{                  
+                        JOptionPane.showMessageDialog(null, "No se ha seleccionado un producto para editar");                   
+                    }
+                }
+                //setTablaCarreras(sistemA);
             }
         });
     
@@ -42,6 +95,15 @@ public class ControladorTablaCar {
         vistaTabCar.setLocationRelativeTo(null);
         carreraGenerica = new Carrera();
         vistaTabCar.setVisible(true);
+        this.editpart = false;
+    }
+    public void iniciarPart() {
+        vistaTabCar.setLocationRelativeTo(null);
+        carreraGenerica = new Carrera();
+        vistaTabCar.setVisible(true);
+        vistaTabCar.btnverPart.setText("EDITAR");
+        //vistaTabCar.btnActualizar.setVisible(false);
+        this.editpart = true;
     }
     
     public void setTablaCarreras(ArchivosSistema s){

@@ -51,12 +51,11 @@ public class ControladorApuesta {
         this.vistaVerApuesta.btnEditarCar.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e){
-                frmCrearCarrera vistaCrearCar = new frmCrearCarrera();
-                ControladorCrearCar controlCrearCar= new ControladorCrearCar(vistaCrearCar);
                 carreraGenerica = new Carrera();
-                carreraGenerica = carreraActiva;
+                frmTablaCarreras vistaTabCar = new frmTablaCarreras();
+                ControladorTablaCar controlTabCar = new ControladorTablaCar(vistaTabCar);
                 vistaVerApuesta.dispose();
-                controlCrearCar.iniciarEditar();
+                controlTabCar.iniciarPart();
             }
         });
     }

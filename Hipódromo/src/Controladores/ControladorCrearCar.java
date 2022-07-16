@@ -190,103 +190,122 @@ public class ControladorCrearCar {
                 }
             }
         });
+        this.vistaCarrera.btnCompe.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+                if(editarRegistro == false){
+                    //carreraGenerica = new Carrera();
+                    frmInscripcion vistaInscripcion = new frmInscripcion();
+                    ControladorInscripcion controlInscripcion = new ControladorInscripcion(vistaInscripcion);
+                    vistaCarrera.dispose();
+                    controlInscripcion.iniciar();
+                }
+                else{
+                    //carreraGenerica = new Carrera();
+                    frmInscripcion vistaInscripcion = new frmInscripcion();
+                    ControladorInscripcion controlInscripcion = new ControladorInscripcion(vistaInscripcion);
+                    vistaCarrera.dispose();
+                    controlInscripcion.iniciarEditar();
+                }
+            }
+        });
         
     
     }
     public void iniciar() {
         setDatos(carreraGenerica);
-        vistaCarrera.setLocationRelativeTo(null);
-        vistaCarrera.setVisible(true);
+        this.vistaCarrera.setLocationRelativeTo(null);
+        this.vistaCarrera.setVisible(true);
         this.editarRegistro = false;
         Botones(false);
 
     }
     public void iniciarB2(boolean estado) {
         setDatos(carreraGenerica);
-        vistaCarrera.setLocationRelativeTo(null);
-        vistaCarrera.setVisible(true);
+        this.vistaCarrera.setLocationRelativeTo(null);
+        this.vistaCarrera.setVisible(true);
         this.editarRegistro = false;
         Botones2(estado);
     }
     public void iniciarBR() {
         setDatos(carreraGenerica);
-        vistaCarrera.setLocationRelativeTo(null);
-        vistaCarrera.setVisible(true);
+        this.vistaCarrera.setLocationRelativeTo(null);
+        this.vistaCarrera.setVisible(true);
         this.editarRegistro = false;
         BotonesR(false);
     }
     public void iniciarB3(boolean estado) {
         setDatos(carreraGenerica);
-        vistaCarrera.setLocationRelativeTo(null);
-        vistaCarrera.setVisible(true);
+        this.vistaCarrera.setLocationRelativeTo(null);
+        this.vistaCarrera.setVisible(true);
         this.editarRegistro = false;
         Botones3(estado);
     }
     public void iniciarEditar() {
         setDatos(carreraGenerica);
-        vistaCarrera.setLocationRelativeTo(null);
-        vistaCarrera.lblTitulo.setText("EDITAR CARRERA");
-        vistaCarrera.btnSalir.setVisible(false);
-        vistaCarrera.btnPart.setText("EDITAR PARTICIPANTES");
-        vistaCarrera.btnCab.setText("EDITAR CABALLOS");
-        vistaCarrera.btnRegistrar.setText("GUARDAR");
-        vistaCarrera.setVisible(true);
+        this.vistaCarrera.setLocationRelativeTo(null);
+        this.vistaCarrera.lblTitulo.setText("EDITAR CARRERA");
+        this.vistaCarrera.btnSalir.setVisible(false);
+        this.vistaCarrera.btnPart.setText("EDITAR PARTICIPANTES");
+        this.vistaCarrera.btnCab.setText("EDITAR CABALLOS");
+        this.vistaCarrera.btnRegistrar.setText("GUARDAR");
+        this.vistaCarrera.setVisible(true);
         this.editarRegistro = true;
     }
     
     public void limpiarVentana(){
-        vistaCarrera.txtNumero.setText("");
-        vistaCarrera.txtPart.setText("");
-        vistaCarrera.txtCab.setText("");
+        this.vistaCarrera.txtNumero.setText("");
+        this.vistaCarrera.txtPart.setText("");
+        this.vistaCarrera.txtCab.setText("");
         carreraGenerica = new Carrera();
         jockeyGenerico = new Jockey();
     }
     
     public void setDatos(Carrera c){
-        vistaCarrera.txtNumero.setText(Integer.toString(c.getNumero_car()));
-        vistaCarrera.txtPart.setText(Integer.toString(c.getNumeroPart()));
-        vistaCarrera.txtCab.setText(Integer.toString(c.getNumeroCab()));
-        vistaCarrera.cobDist.setName(Integer.toString(c.getDistancia()));
+        this.vistaCarrera.txtNumero.setText(Integer.toString(c.getNumero_car()));
+        this.vistaCarrera.txtPart.setText(Integer.toString(c.getNumeroPart()));
+        this.vistaCarrera.txtCab.setText(Integer.toString(c.getNumeroCab()));
+        this.vistaCarrera.cobDist.setName(Integer.toString(c.getDistancia()));
         //Agregar
     }
     
     public void guardarDatos(Carrera c){
         try{
-            c.setNumero_car(Integer.parseInt(vistaCarrera.txtNumero.getText()));
-            c.setNumeroPart(Integer.parseInt(vistaCarrera.txtPart.getText()));
-            c.setNumeroCab(Integer.parseInt(vistaCarrera.txtCab.getText()));
-            c.setDistancia(Integer.parseInt((String)vistaCarrera.cobDist.getSelectedItem()));
+            c.setNumero_car(Integer.parseInt(this.vistaCarrera.txtNumero.getText()));
+            c.setNumeroPart(Integer.parseInt(this.vistaCarrera.txtPart.getText()));
+            c.setNumeroCab(Integer.parseInt(this.vistaCarrera.txtCab.getText()));
+            c.setDistancia(Integer.parseInt((String)this.vistaCarrera.cobDist.getSelectedItem()));
         }catch(Exception e){       
         }
     }
     public void Botones(boolean estado){
-        vistaCarrera.btnPart.setEnabled(estado);
-        vistaCarrera.btnCab.setEnabled(estado);
-        vistaCarrera.btnCompe.setEnabled(estado);
+        this.vistaCarrera.btnPart.setEnabled(estado);
+        this.vistaCarrera.btnCab.setEnabled(estado);
+        this.vistaCarrera.btnCompe.setEnabled(estado);
         
     }
     public void BotonesR(boolean estado){
-        vistaCarrera.btnPart.setEnabled(estado);
-        vistaCarrera.btnCab.setEnabled(estado);
-        vistaCarrera.btnCompe.setEnabled(!estado);
+        this.vistaCarrera.btnPart.setEnabled(estado);
+        this.vistaCarrera.btnCab.setEnabled(estado);
+        this.vistaCarrera.btnCompe.setEnabled(!estado);
         
     }
     public void Botones2(boolean estado){
-        vistaCarrera.btnPart.setEnabled(estado);
-        vistaCarrera.btnCab.setEnabled(!estado);
-        vistaCarrera.btnCompe.setEnabled(false);
+        this.vistaCarrera.btnPart.setEnabled(estado);
+        this.vistaCarrera.btnCab.setEnabled(!estado);
+        this.vistaCarrera.btnCompe.setEnabled(false);
     }
     public void Botones3(boolean estado){
-        vistaCarrera.btnPart.setEnabled(!estado);
-        vistaCarrera.btnCab.setEnabled(!estado);
-        vistaCarrera.btnCompe.setEnabled(estado);
+        this.vistaCarrera.btnPart.setEnabled(!estado);
+        this.vistaCarrera.btnCab.setEnabled(!estado);
+        this.vistaCarrera.btnCompe.setEnabled(estado);
     }
     public boolean numerosCorrectos(){
         boolean result = false;
         boolean existeNumero = false;
         boolean limitnum = false;
         try{
-            int Numero = Integer.parseInt(vistaCarrera.txtNumero.getText());
+            int Numero = Integer.parseInt(this.vistaCarrera.txtNumero.getText());
             for(int i=0; i<sistemA.getCarreras().getIndiceCar(); i++){
                 if(sistemA.getCarreras().getCarreras()[i].getNumero_car()==Numero){
                     existeNumero = true;
