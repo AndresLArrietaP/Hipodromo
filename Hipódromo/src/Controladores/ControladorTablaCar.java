@@ -41,7 +41,7 @@ public class ControladorTablaCar {
         this.vistaTabCar.btnverPart.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e){
-                int pos=0;        
+                //int pos=0;        
                 int fila = vistaTabCar.tblCarreras.getSelectedRow();
                 int columna = vistaTabCar.tblCarreras.getSelectedColumn();
                 if(editpart==false){
@@ -50,13 +50,26 @@ public class ControladorTablaCar {
                         for(int i=0; i<sistemA.getCarreras().getIndiceCar(); i++){
                             //if(sistem.getObjetos().getProducs()[i].getUsuario() == usuarioActivo){
                                 if(sistemA.getCarreras().getCarreras()[i].getNumero_car()==Integer.parseInt(numero)){
-                                    pos=i;
+                                    //pos=i;
                                     //carreraGenerica = new Carrera();
-
-                                    frmCrearCarrera vistaCrearCar = new frmCrearCarrera();
-                                    ControladorCrearCar controlCrearCar= new ControladorCrearCar(vistaCrearCar);
+                              
+                                    /*frmTablaParticipantes vistaTabPart = new frmTablaParticipantes();
+                                    ControladorTablaPart controlTabPart = new ControladorTablaPart(vistaTabPart,pos);
                                     vistaTabCar.dispose();
-                                    controlCrearCar.iniciarEditar();                            
+                                    controlTabPart.iniciar(); */
+                                    
+                                    String compe = "";
+                                for(int j=0; j<carreraGenerica.getNumeroPart(); j++){
+                                compe += "\n      Competidor " + (j+1) + ":";
+                                    compe += "\n    Nombre:  " + sistemA.getCarreras().getCarreras()[i].getJockeys()[j].getNombre() +
+                                             "\n    Edad:  " + sistemA.getCarreras().getCarreras()[i].getJockeys()[j].getEdad() +
+                                             "\n    Caballo:" +
+                                             "\n          Nombre:  " + sistemA.getCarreras().getCarreras()[i].getJockeys()[j].getCaballo().getNombre_cab()+
+                                             "\n          Edad:  " + sistemA.getCarreras().getCarreras()[i].getJockeys()[j].getCaballo().getEdad() +
+                                             "\n          Peso:  " + sistemA.getCarreras().getCarreras()[i].getJockeys()[j].getCaballo().getPeso() +
+                                             "\n          Raza:  " + sistemA.getCarreras().getCarreras()[i].getJockeys()[j].getCaballo().getRaza();
+                                }
+                                   JOptionPane.showMessageDialog(null, "DATOS DE CONCURSANTES:"+compe);
                                 }
                             //}
                         }
@@ -70,13 +83,13 @@ public class ControladorTablaCar {
                         for(int i=0; i<sistemA.getCarreras().getIndiceCar(); i++){
                             //if(sistem.getObjetos().getProducs()[i].getUsuario() == usuarioActivo){
                                 if(sistemA.getCarreras().getCarreras()[i].getNumero_car()==Integer.parseInt(numero)){
-                                    pos=i;
+                                    //pos=i;
                                     //carreraGenerica = new Carrera();
 
-                                    frmTablaParticipantes vistaTabPart = new frmTablaParticipantes();
-                                    ControladorTablaPart controlTabPart = new ControladorTablaPart(vistaTabPart,pos);
+                                    frmCrearCarrera vistaCrearCar = new frmCrearCarrera();
+                                    ControladorCrearCar controlCrearCar= new ControladorCrearCar(vistaCrearCar);
                                     vistaTabCar.dispose();
-                                    controlTabPart.iniciar();                            
+                                    controlCrearCar.iniciarEditar();                          
                                 }
                             //}
                         }

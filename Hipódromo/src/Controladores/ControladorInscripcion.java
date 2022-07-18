@@ -48,21 +48,21 @@ public class ControladorInscripcion {
                         vistaInscripcion.cmbCaballos.getSelectedItem().toString().compareTo("Seleccione una opción")!=0){
                     due=jockeyDueño();
                     cab=caballoAsig();
-                    for(int i=0; i<carreraGenerica.getCaballos().getIndiceCab(); i++){
+                    for(int i=0; i<carreraGenerica.getNumeroCab(); i++){
                         //if(sistemA.getCaballos().getCaballos()[i].getNombre_cab().compareTo(vistaInscripcion.cmbCaballos.getSelectedItem().toString())==0){                            
-                        if(JockoCabEnUso(carreraGenerica.getCaballos().getCaballos()[cab])){
+                        if(JockoCabEnUso(carreraGenerica.getCaballos()[cab])){
                                 JOptionPane.showMessageDialog(null, "El caballo ya cuenta con Jockey");
                                 vistaInscripcion.cmbCaballos.setSelectedIndex(0);
                                 vistaInscripcion.cmbJockeys.setSelectedIndex(0);
-                                //sistemA.guardar();
+                                sistemA.guardar();
                             }
                             else{
-                                carreraGenerica.getJockeys().getJockeys()[due].setCaballo(carreraGenerica.getCaballos().getCaballos()[cab]);
+                                carreraGenerica.getJockeys()[due].setCaballo(carreraGenerica.getCaballos()[cab]);
                                 vistaInscripcion.cmbJockeys.removeItemAt(vistaInscripcion.cmbJockeys.getSelectedIndex());
                                 vistaInscripcion.cmbCaballos.removeItemAt(vistaInscripcion.cmbCaballos.getSelectedIndex());
                                 vistaInscripcion.cmbJockeys.setSelectedIndex(0);
                                 vistaInscripcion.cmbCaballos.setSelectedIndex(0);
-                                //sistemA.guardar();
+                                sistemA.guardar();
                             }
                         //}
                     }
@@ -77,7 +77,7 @@ public class ControladorInscripcion {
      }
      public void iniciar(){
         vistaInscripcion.setLocationRelativeTo(null);
-        //jockeyGenerico = new Jockey();
+        jockeyGenerico = new Jockey();
         this.editarInscritos = false;
         llenarCategorias();
         vistaInscripcion.setVisible(true);
@@ -148,19 +148,19 @@ public class ControladorInscripcion {
         return result;
     }*/
     public void setDatos(Carrera c){
-        for(int i=0; i<sistemA.getJockeys().getIndiceJock(); i++){
-            vistaInscripcion.cmbJockeys.addItem(c.getJockeys().getJockeys()[i].getNombre()+" "+c.getJockeys().getJockeys()[i].getEdad());
+        for(int i=0; i<carreraGenerica.getNumeroPart(); i++){
+            vistaInscripcion.cmbJockeys.addItem(c.getJockeys()[i].getNombre());
         }
-        for(int i=0; i<sistemA.getCaballos().getIndiceCab(); i++){
-            vistaInscripcion.cmbCaballos.addItem(c.getJockeys().getJockeys()[i].getNombre()+" "+c.getJockeys().getJockeys()[i].getEdad());
+        for(int i=0; i<carreraGenerica.getNumeroCab(); i++){
+            vistaInscripcion.cmbCaballos.addItem(c.getCaballos()[i].getNombre_cab());
         }
     }
     public int jockeyDueño(){
         int pos = 0;
 
         String nom= vistaInscripcion.cmbJockeys.getSelectedItem().toString();
-        for(int i=0; i<carreraGenerica.getJockeys().getIndiceJock(); i++){
-            if(carreraGenerica.getJockeys().getJockeys()[i].getNombre().compareTo(nom) ==0){
+        for(int i=0; i<carreraGenerica.getNumeroPart(); i++){
+            if(carreraGenerica.getJockeys()[i].getNombre().compareTo(nom) ==0){
                 pos=i;
             }
         }        
@@ -170,8 +170,8 @@ public class ControladorInscripcion {
         int pos = 0;
 
         String nom= vistaInscripcion.cmbCaballos.getSelectedItem().toString();
-        for(int i=0; i<carreraGenerica.getCaballos().getIndiceCab(); i++){
-            if(carreraGenerica.getCaballos().getCaballos()[i].getNombre_cab().compareTo(nom) ==0){
+        for(int i=0; i<carreraGenerica.getNumeroCab(); i++){
+            if(carreraGenerica.getCaballos()[i].getNombre_cab().compareTo(nom) ==0){
                 pos=i;
             }
         }  
@@ -194,19 +194,19 @@ public class ControladorInscripcion {
         
         vistaInscripcion.cmbJockeys.addItem("Seleccione una opción");
         vistaInscripcion.cmbCaballos.addItem("Seleccione una opción");
-        for(int i=0; i<carreraGenerica.getJockeys().getIndiceJock(); i++){
-            vistaInscripcion.cmbJockeys.addItem(carreraGenerica.getJockeys().getJockeys()[i].getNombre());
+        for(int i=0; i<carreraGenerica.getNumeroPart(); i++){
+            vistaInscripcion.cmbJockeys.addItem(carreraGenerica.getJockeys()[i].getNombre());
         }
-        for(int i=0; i<carreraGenerica.getCaballos().getIndiceCab(); i++){
-            vistaInscripcion.cmbCaballos.addItem(carreraGenerica.getCaballos().getCaballos()[i].getNombre_cab());
+        for(int i=0; i<carreraGenerica.getNumeroCab(); i++){
+            vistaInscripcion.cmbCaballos.addItem(carreraGenerica.getCaballos()[i].getNombre_cab());
         } 
 
     }
     
     public boolean JockoCabEnUso(Caballo c){
         boolean result = false;
-        for(int i=0; i<carreraGenerica.getJockeys().getIndiceJock(); i++){
-            if(carreraGenerica.getJockeys().getJockeys()[i].getCaballo()==c){
+        for(int i=0; i<carreraGenerica.getNumeroPart(); i++){
+            if(carreraGenerica.getJockeys()[i].getCaballo()==c){
                 result = true;
             }
         }

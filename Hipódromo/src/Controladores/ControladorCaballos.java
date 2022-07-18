@@ -51,7 +51,7 @@ public class ControladorCaballos {
         this.vistaCaballos.btnAgregar.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e){
-                if(num+1==carreraGenerica.getNumeroPart()){
+                if(num==carreraGenerica.getNumeroCab()){
                     Ultimo=true;
                 }
                 if(casillasCompletas()){
@@ -62,19 +62,18 @@ public class ControladorCaballos {
                                 Integer.parseInt(vistaCaballos.txtEdadC.getText()),vistaCaballos.cmbRazaC.getSelectedItem().toString());
                             if(editarCaballos == false){                               
                                 if(Ultimo==false){
-                                    carreraGenerica.getCaballos().agregarCaballo(caballoGenerico);
+                                    carreraGenerica.agregarCaballo(caballoGenerico);
                                     frmCaballos vistaCab = new frmCaballos ();
                                     ControladorCaballos controlCaballo = new ControladorCaballos(vistaCab,num+1);
                                     vistaCaballos.dispose();
                                     controlCaballo.iniciar(num+1);
                                 }
                                 else {
-                                    carreraGenerica.getCaballos().agregarCaballo(caballoGenerico);
+                                    carreraGenerica.agregarCaballo(caballoGenerico);
                                     frmCrearCarrera vistaCrearCar = new frmCrearCarrera();
                                     ControladorCrearCar controlCrearCar = new ControladorCrearCar(vistaCrearCar);
                                     vistaCaballos.dispose();
-                                    
-                                    if(carreraGenerica.getJockeys().getIndiceJock()==0){
+                                    if(carreraGenerica.getIndiceJ()==0){
                                         controlCrearCar.iniciarB2(true);
                                     }else{
                                         controlCrearCar.iniciarB3(true);
@@ -83,8 +82,8 @@ public class ControladorCaballos {
                             }
                             else {                             
                                 if(editarUltimo==false){
-                                    carreraGenerica.getCaballos().eliminarCaballo(caballoAuxiliar);
-                                    carreraGenerica.getCaballos().agregarCaballo(caballoGenerico);
+                                    carreraGenerica.eliminarCaballo(caballoAuxiliar);
+                                    carreraGenerica.agregarCaballo(caballoGenerico);
                                     caballoAuxiliar = new Caballo();
                                     frmCaballos vistaCab = new frmCaballos ();
                                     ControladorCaballos controlCaballo = new ControladorCaballos(vistaCab,num+1);
@@ -92,8 +91,8 @@ public class ControladorCaballos {
                                     controlCaballo.iniciarEditar(num+1);
                                 }
                                 else {
-                                    carreraGenerica.getJockeys().eliminarJockey(jockeyAuxiliar);
-                                    carreraGenerica.getJockeys().agregarJockey(jockeyGenerico);
+                                    carreraGenerica.eliminarJockey(jockeyAuxiliar);
+                                    carreraGenerica.agregarJockey(jockeyGenerico);
                                     jockeyAuxiliar = new Jockey();                                   
                                     frmCrearCarrera vistaCrearCar = new frmCrearCarrera();
                                     ControladorCrearCar controlCrearCar = new ControladorCrearCar(vistaCrearCar);
@@ -119,7 +118,7 @@ public class ControladorCaballos {
     public void iniciar(int i) {
         setDatos(caballoGenerico);
         vistaCaballos.setLocationRelativeTo(null);
-        vistaCaballos.lblNumero.setText(String.valueOf(i+1));
+        vistaCaballos.lblNumero.setText(String.valueOf(i));
         vistaCaballos.setVisible(true);
         this.editarCaballos = false;
     }
@@ -128,7 +127,7 @@ public class ControladorCaballos {
         setDatos(caballoGenerico);
         vistaCaballos.setLocationRelativeTo(null);
         vistaCaballos.lblTitulo.setText("EDITAR JOCKEY Nro");
-        vistaCaballos.lblNumero.setText(String.valueOf(i+1));
+        vistaCaballos.lblNumero.setText(String.valueOf(i));
         vistaCaballos.btnSalir.setVisible(false);
         vistaCaballos.btnAgregar.setText("GUARDAR");
         vistaCaballos.setVisible(true);
@@ -137,7 +136,7 @@ public class ControladorCaballos {
     public void iniciarUlt(int j) {
         setDatos(caballoGenerico);
         vistaCaballos.setLocationRelativeTo(null);
-        vistaCaballos.lblNumero.setText(String.valueOf(j+1));
+        vistaCaballos.lblNumero.setText(String.valueOf(j));
         vistaCaballos.btnCancelar.setText("VOLVER");
         vistaCaballos.btnAgregar.setText("TERMINAR");
         vistaCaballos.setVisible(true);
@@ -147,7 +146,7 @@ public class ControladorCaballos {
         setDatos(caballoGenerico);
         vistaCaballos.setLocationRelativeTo(null);
         vistaCaballos.lblTitulo.setText("EDITAR JOCKEY Nro");
-        vistaCaballos.lblNumero.setText(String.valueOf(j+1));
+        vistaCaballos.lblNumero.setText(String.valueOf(j));
         vistaCaballos.btnCancelar.setText("VOLVER");
         vistaCaballos.btnSalir.setVisible(false);
         vistaCaballos.btnAgregar.setText("TERMINAR GUARDADO");
@@ -195,19 +194,6 @@ public class ControladorCaballos {
         vistaCaballos.txtEdadC.setText("");
         vistaCaballos.cmbRazaC.setSelectedIndex(0);
     }
-   /* public void guardarDatos(Jockey j){
-        try{
-            j.setNombre(vistaJockeyCaballo.txtNombreJ.getText());
-            j.setEdad(Integer.parseInt(vistaJockeyCaballo.txtEdadJ.getText()));
-            Caballo cab = new Caballo(vistaJockeyCaballo.txtNombreC.getText(), Double.valueOf(vistaJockeyCaballo.txtPesoC.getText()), 
-                    Integer.valueOf(vistaJockeyCaballo.txtEdadC.getText()),vistaJockeyCaballo.txtRazaC.getText());
-            j.setCaballo(cab);
-        }catch(Exception e){
-            Caballo cab = new Caballo(vistaJockeyCaballo.txtNombreC.getText(), Double.valueOf(vistaJockeyCaballo.txtPesoC.getText()), 
-                    Integer.valueOf(vistaJockeyCaballo.txtEdadC.getText()),vistaJockeyCaballo.txtRazaC.getText());
-            j.setCaballo(cab);
-        }
-    }*/
     
     public boolean nombresyedadCorrectos(){
         boolean result = false;
@@ -245,8 +231,7 @@ public class ControladorCaballos {
     
     public boolean casillasCompletas(){
         boolean result = false;
-        if (/*this.vistaJockeyCaballo.txtNombreJ.getText().length()!=0 &&
-            this.vistaJockeyCaballo.txtEdadJ.getText().length()!=0)*/
+        if (
             this.vistaCaballos.txtNombreC.getText().length()!=0 &&
             this.vistaCaballos.txtPesoC.getText().length()!=0 &&
             this.vistaCaballos.txtEdadC.getText().length()!=0 &&

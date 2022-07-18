@@ -37,11 +37,18 @@ public class ControladorCrearCar {
             @Override
             public void actionPerformed(ActionEvent e){
                 if(editarRegistro == false){
-                    carreraGenerica = new Carrera();
-                    frmInicio vistaInicio = new frmInicio();
-                    ControladorInicio controlInicio = new ControladorInicio(vistaInicio);
-                    vistaCarrera.dispose();
-                    controlInicio.iniciar();
+                    for(int i=0; i<sistemA.getCarreras().getIndiceCar(); i++){
+                        if(carreraGenerica.getIndiceJ()==0 || carreraGenerica.getIndiceJ()==0){
+                            JOptionPane.showMessageDialog(null, "No olvide ingresar caballos o jockeys.");
+                        }else{
+                        frmInicio vistaInicio = new frmInicio();
+                        ControladorInicio controlInicio = new ControladorInicio(vistaInicio);
+                        carreraActiva = new Carrera();
+                        carreraActiva = sistemA.getCarreras().getCarreras()[i];
+                        vistaCarrera.dispose();
+                        controlInicio.iniciar();
+                        }
+                    }
                 }
                 else{
                     carreraGenerica = new Carrera();
@@ -56,10 +63,10 @@ public class ControladorCrearCar {
         this.vistaCarrera.btnPart.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e){
+                guardarDatos(carreraGenerica);
                 if(editarRegistro == false){
-                    guardarDatos(carreraGenerica);
-                    int i=0;
-                        if(i==carreraGenerica.getNumeroPart()-1){
+                    int i=1;
+                        if(i==carreraGenerica.getNumeroPart()){
                             jockeyGenerico = new Jockey();
                             frmJockeysCaballos vistaJockeyCaballo = new frmJockeysCaballos();
                             ControladorJockeysCaballos controlJockeyCab = new ControladorJockeysCaballos(vistaJockeyCaballo,i);
@@ -76,7 +83,6 @@ public class ControladorCrearCar {
                     
                 }
                 else{
-                    guardarDatos(carreraGenerica);
                     for(int i=0; i<carreraGenerica.getNumeroPart()-1;i++){
                         if(i==carreraGenerica.getNumeroPart()-1){
                             jockeyGenerico = new Jockey();
@@ -99,10 +105,10 @@ public class ControladorCrearCar {
         this.vistaCarrera.btnCab.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e){
+                guardarDatos(carreraGenerica);
                 if(editarRegistro == false){
-                    guardarDatos(carreraGenerica);
-                    int i=0;
-                        if(i==carreraGenerica.getNumeroCab()-1){
+                    int i=1;
+                        if(i==carreraGenerica.getNumeroCab()){
                             caballoGenerico = new Caballo();
                             frmCaballos vistaCaballos = new frmCaballos();
                             ControladorCaballos controlCab = new ControladorCaballos(vistaCaballos,i);
@@ -120,7 +126,6 @@ public class ControladorCrearCar {
                     
                 }
                 else{
-                    guardarDatos(carreraGenerica);
                     for(int i=0; i<carreraGenerica.getNumeroCab()-1;i++){
                         if(i==carreraGenerica.getNumeroCab()-1){
                             caballoGenerico = new Caballo();

@@ -30,6 +30,7 @@ public class ControladorApuesta {
                     carreraGenerica = new Carrera();
                     frmInicio vistaInicio = new frmInicio();
                     ControladorInicio controlInicio = new ControladorInicio(vistaInicio);
+                    sistemA.guardar();
                     vistaVerApuesta.dispose();
                     controlInicio.iniciar();
 
@@ -54,6 +55,8 @@ public class ControladorApuesta {
                 carreraGenerica = new Carrera();
                 frmTablaCarreras vistaTabCar = new frmTablaCarreras();
                 ControladorTablaCar controlTabCar = new ControladorTablaCar(vistaTabCar);
+                carreraGenerica = new Carrera();
+                carreraGenerica = carreraActiva;
                 vistaVerApuesta.dispose();
                 controlTabCar.iniciarPart();
             }
@@ -63,6 +66,7 @@ public class ControladorApuesta {
     public void iniciar() {
         vistaVerApuesta.setLocationRelativeTo(null);
         carreraGenerica = new Carrera();
+        apuestaGenerica = new Apuesta();
         vistaVerApuesta.setVisible(true);
     }
     

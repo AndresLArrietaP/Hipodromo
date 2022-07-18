@@ -50,14 +50,14 @@ public class ControladorTablaPart {
     }
     
     public void setTablaParticipantes(Carrera c){
-        String matriz[][] = new String[c.getJockeys().getIndiceJock()][6];
-        for(int i=0; i<c.getJockeys().getIndiceJock(); i++){
-            matriz[i][0] = c.getJockeys().getJockeys()[i].getNombre();
-            matriz[i][1] = Integer.toString(c.getJockeys().getJockeys()[i].getEdad());
-            matriz[i][2] = c.getJockeys().getJockeys()[i].getCaballo().getNombre_cab();
-            matriz[i][3] = Integer.toString(c.getJockeys().getJockeys()[i].getCaballo().getEdad());
-            matriz[i][4] = Float.toString(c.getJockeys().getJockeys()[i].getCaballo().getPeso());
-            matriz[i][5] = c.getJockeys().getJockeys()[i].getCaballo().getRaza();
+        String matriz[][] = new String[c.getNumeroPart()][6];
+        for(int i=0; i<c.getNumeroPart(); i++){
+            matriz[i][0] = c.getJockeys()[i].getNombre();
+            matriz[i][1] = Integer.toString(c.getJockeys()[i].getEdad());
+            matriz[i][2] = c.getJockeys()[i].getCaballo().getNombre_cab();
+            matriz[i][3] = Integer.toString(c.getJockeys()[i].getCaballo().getEdad());
+            matriz[i][4] = Float.toString(c.getJockeys()[i].getCaballo().getPeso());
+            matriz[i][5] = c.getJockeys()[i].getCaballo().getRaza();
         }
         String cabecera[] = {"Nombre ", "Edad ", "Nombre Caballo","Edad Caballo","Peso Caballo","Raza Caballo"};
         vistaTabPart.tblParticipantes.setModel(new javax.swing.table.DefaultTableModel(

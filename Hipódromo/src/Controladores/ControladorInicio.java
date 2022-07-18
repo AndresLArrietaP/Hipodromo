@@ -38,10 +38,14 @@ public class ControladorInicio {
         this.vistaInicio.btnVerApostar.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e){
+                if(sistemA.getCarreras().getIndiceCar()==0){
+                    JOptionPane.showMessageDialog(null, "Primero cree una carrera");
+                }else{
                 frmApuesta vistaVerCar = new frmApuesta();
                 ControladorApuesta controlApuesta = new ControladorApuesta(vistaVerCar);
                 vistaInicio.dispose();
                 controlApuesta.iniciar();
+                }
             }
         });
     }

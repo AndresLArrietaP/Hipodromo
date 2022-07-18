@@ -17,6 +17,7 @@ public class Repositorio {
     public static Carrera carreraGenerica = new Carrera();
     public static Carrera carreraActiva = new Carrera();
     public static ArregloCarrera acarreraGenerica = new ArregloCarrera();
+    public static Apuesta apuestaGenerica= new Apuesta();
     public static ArchivosSistema sistemA = new ArchivosSistema();
     
 }
