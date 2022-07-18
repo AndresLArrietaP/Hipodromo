@@ -66,7 +66,7 @@ public class ControladorApuesta {
     public void iniciar() {
         vistaVerApuesta.setLocationRelativeTo(null);
         carreraGenerica = new Carrera();
-        apuestaGenerica = new Apuesta();
+        apuestaGenerica = new NodoApuesta();
         vistaVerApuesta.setVisible(true);
     }
     

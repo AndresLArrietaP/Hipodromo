@@ -54,7 +54,15 @@ public class Jockey implements Serializable{
         this.caballo = caballo;
     }
     
-    
+    @Override
+    public String toString() {
+        String result = "";
+        result += "\tNombre: \t"  + "\n\tEdad: \t\t" + this.edad + "\n\tNombre caballo: \t" + this.caballo.getNombre_cab()
+               + "\n  Edad caballo:\n" + this.caballo.getEdad()+ "  Peso:\n" + this.caballo.getPeso()+"  Raza:\n" + this.caballo.getRaza();
+
+        result += "\n";
+        return result;
+    }
     
 }
 
