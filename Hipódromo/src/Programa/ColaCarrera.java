@@ -54,8 +54,8 @@ public class ColaCarrera {
     }
     
     //Métodos
-    private void encolar(int tim, int ord){
-            NodoLlegada nuevo= new NodoLlegada(tim,ord);
+    private void encolar(int tim, int ord, Jockey j){
+            NodoLlegada nuevo= new NodoLlegada(tim,ord,j);
             if(prim==null){
                 prim=nuevo; //vacio
             }else{

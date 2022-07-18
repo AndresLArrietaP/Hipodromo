@@ -6,11 +6,13 @@ import java.io.*;
 public class NodoLlegada {
     int tiempo;
     int orden;
+    Jockey conc;
     NodoLlegada sig;
 
-    public NodoLlegada(int tiempo, int orden) {
+    public NodoLlegada(int tiempo, int orden,Jockey jock) {
         this.tiempo = tiempo;
         this.orden = orden;
+        this.conc = jock;
         this.sig = null;
     }
 
@@ -22,6 +24,10 @@ public class NodoLlegada {
         return orden;
     }
 
+    public Jockey getConc() {
+        return conc;
+    }
+    
     public NodoLlegada getSig() {
         return sig;
     }
@@ -32,6 +38,10 @@ public class NodoLlegada {
 
     public void setOrden(int orden) {
         this.orden = orden;
+    }
+
+    public void setConc(Jockey conc) {
+        this.conc = conc;
     }
 
     public void setSig(NodoLlegada sig) {

@@ -44,7 +44,7 @@ public class PilaCajaApuesta {
             }
             tope=nuevo;
         }
-        public String pop(){
+    public String pop(){
             String eliminado="";
             NodoApuesta aux=tope;
         
