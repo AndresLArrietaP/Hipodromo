@@ -37,7 +37,7 @@ public class ControladorApuesta {
                 }            
         });
         
-        this.vistaVerApuesta.btnVerCarrera.addActionListener(new ActionListener(){
+        /*this.vistaVerApuesta.btnVerCarrera.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e){
                     carreraGenerica = new Carrera();
@@ -47,7 +47,7 @@ public class ControladorApuesta {
                     controlTabCar.iniciar();
 
                 }            
-        });
+        });*/
         
         this.vistaVerApuesta.btnEditarCar.addActionListener(new ActionListener(){
             @Override
@@ -59,6 +59,19 @@ public class ControladorApuesta {
                 carreraGenerica = carreraActiva;
                 vistaVerApuesta.dispose();
                 controlTabCar.iniciarPart();
+            }
+        });
+        
+        this.vistaVerApuesta.btnApostar.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+                carreraGenerica = new Carrera();
+                frmApostar vistaApostar = new frmApostar();
+                ControladorApostar controlApostar = new ControladorApostar(vistaApostar);
+                carreraGenerica = new Carrera();
+                carreraGenerica = carreraActiva;
+                vistaVerApuesta.dispose();
+                controlApostar.iniciar();
             }
         });
     }

@@ -246,8 +246,8 @@ public class ControladorCrearCar {
         this.editarRegistro = false;
         Botones3(estado);
     }
-    public void iniciarEditar() {
-        setDatos(carreraGenerica);
+    public void iniciarEditar(int n) {
+        setDatos2(n);
         this.vistaCarrera.setLocationRelativeTo(null);
         this.vistaCarrera.lblTitulo.setText("EDITAR CARRERA");
         this.vistaCarrera.btnSalir.setVisible(false);
@@ -271,6 +271,13 @@ public class ControladorCrearCar {
         this.vistaCarrera.txtPart.setText(Integer.toString(c.getNumeroPart()));
         this.vistaCarrera.txtCab.setText(Integer.toString(c.getNumeroCab()));
         this.vistaCarrera.cobDist.setName(Integer.toString(c.getDistancia()));
+        //Agregar
+    }
+    public void setDatos2(int n){
+        this.vistaCarrera.txtNumero.setText(Integer.toString(sistemA.getCarreras().getCarreras()[n].getNumero_car()));
+        this.vistaCarrera.txtPart.setText(Integer.toString(sistemA.getCarreras().getCarreras()[n].getNumeroPart()));
+        this.vistaCarrera.txtCab.setText(Integer.toString(sistemA.getCarreras().getCarreras()[n].getNumeroCab()));
+        this.vistaCarrera.cobDist.setName(Integer.toString(sistemA.getCarreras().getCarreras()[n].getDistancia()));
         //Agregar
     }
     

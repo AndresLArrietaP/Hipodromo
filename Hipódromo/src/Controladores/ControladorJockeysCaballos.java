@@ -43,7 +43,7 @@ public class ControladorJockeysCaballos {
                     frmCrearCarrera vistaCrearCar = new frmCrearCarrera ();
                     ControladorCrearCar controlCrearCar= new ControladorCrearCar(vistaCrearCar);
                     vistaJockeyCaballo.dispose();
-                    controlCrearCar.iniciarEditar();
+                    //controlCrearCar.iniciarEditar();
                 }
             }
         });
@@ -96,7 +96,7 @@ public class ControladorJockeysCaballos {
                                     frmCrearCarrera vistaCrearCar = new frmCrearCarrera();
                                     ControladorCrearCar controlCrearCar = new ControladorCrearCar(vistaCrearCar);
                                     vistaJockeyCaballo.dispose();
-                                    controlCrearCar.iniciarEditar();
+                                    //controlCrearCar.iniciarEditar();
                                 }                                                          
                             }                                            
                     }

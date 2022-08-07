@@ -33,7 +33,7 @@ public class ControladorInscripcion {
                     frmCrearCarrera vistaCrearCar = new frmCrearCarrera ();
                     ControladorCrearCar controlCrearCar= new ControladorCrearCar(vistaCrearCar);
                     vistaInscripcion.dispose();
-                    controlCrearCar.iniciarEditar();
+                    //controlCrearCar.iniciarEditar();
                 }
             }
         });

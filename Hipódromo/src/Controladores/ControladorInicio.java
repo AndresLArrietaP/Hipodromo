@@ -13,6 +13,7 @@ import javax.swing.*;
  */
 public class ControladorInicio {
     private frmInicio vistaInicio;
+    private frmTablaCarreras vistaTabCar;
     
     public ControladorInicio(frmInicio vistaInicio){
         this.vistaInicio = vistaInicio;
@@ -38,13 +39,18 @@ public class ControladorInicio {
         this.vistaInicio.btnVerApostar.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e){
-                if(sistemA.getCarreras().getIndiceCar()==0){
-                    JOptionPane.showMessageDialog(null, "Primero cree una carrera");
-                }else{
-                frmApuesta vistaVerCar = new frmApuesta();
-                ControladorApuesta controlApuesta = new ControladorApuesta(vistaVerCar);
-                vistaInicio.dispose();
-                controlApuesta.iniciar();
+                boolean encontrado = false;
+                for(int i=0; i<sistemA.getCarreras().getIndiceCar(); i++){
+                    
+                            encontrado = true;
+                            frmTablaCarreras vistaTabCar= new frmTablaCarreras();
+                            ControladorTablaCar controlTabCar = new ControladorTablaCar(vistaTabCar);
+                            vistaInicio.dispose();
+                            controlTabCar.iniciar();                     
+                    
+                }
+                if(encontrado == false){
+                    JOptionPane.showMessageDialog(null, "No se ha creado ninguna carrera");
                 }
             }
         });
