@@ -23,7 +23,8 @@ public class ControladorTablaCar {
 
                     carreraGenerica = new Carrera();
                     frmApuesta vistaApuesta = new frmApuesta();
-                    ControladorApuesta controlApuesta = new ControladorApuesta(vistaApuesta);
+                    JLabel tick = new JLabel();
+                    ControladorApuesta controlApuesta = new ControladorApuesta(vistaApuesta,tick);
                     vistaTabCar.dispose();
                     controlApuesta.iniciar();            
 
@@ -50,7 +51,8 @@ public class ControladorTablaCar {
                                     
                                     //encontrado = true;
                                     frmApuesta vistaPagCar = new frmApuesta();
-                                    ControladorApuesta controlPagCar = new ControladorApuesta(vistaPagCar);
+                                    JLabel tick = new JLabel();
+                                    ControladorApuesta controlPagCar = new ControladorApuesta(vistaPagCar,tick);
                                     carreraActiva = new Carrera();
                                     carreraActiva = sistemA.getCarreras().getCarreras()[i];
                                     cerrarVentana();

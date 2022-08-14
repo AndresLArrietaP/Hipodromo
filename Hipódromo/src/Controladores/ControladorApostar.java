@@ -23,7 +23,8 @@ public class ControladorApostar {
             public void actionPerformed(ActionEvent e){
                     carreraGenerica = new Carrera();
                     frmApuesta vistaApuesta = new frmApuesta();
-                    ControladorApuesta controlApuesta = new ControladorApuesta(vistaApuesta);
+                    JLabel tick = new JLabel();
+                    ControladorApuesta controlApuesta = new ControladorApuesta(vistaApuesta,tick);
                     sistemA.guardar();
                     vistaApostar.dispose();
                     controlApuesta.iniciar();

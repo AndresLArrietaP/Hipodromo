@@ -30,15 +30,23 @@ public class frmApuesta extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         btnVerCarrera = new javax.swing.JButton();
         btnEditarCar = new javax.swing.JButton();
+        lblid = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        btnVolver = new javax.swing.JButton();
-        btnSalir = new javax.swing.JButton();
-        btnApostar = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        jPanel5 = new javax.swing.JPanel();
+        lblJin1 = new javax.swing.JLabel();
+        pnMeta = new javax.swing.JPanel();
+        lblJin2 = new javax.swing.JLabel();
+        lblJin3 = new javax.swing.JLabel();
+        lblJin4 = new javax.swing.JLabel();
+        lblJin5 = new javax.swing.JLabel();
+        lblJin6 = new javax.swing.JLabel();
+        btnEmpezar = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jPanel6 = new javax.swing.JPanel();
+        btnApostar = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
+        btnVolver = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -50,20 +58,26 @@ public class frmApuesta extends javax.swing.JFrame {
         jLabel2.setText("CARRERA :");
 
         btnVerCarrera.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        btnVerCarrera.setText("VER CARRERAS");
+        btnVerCarrera.setText("VER PARTICIPANTES");
 
         btnEditarCar.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         btnEditarCar.setText("EDITAR CARRERAS");
+
+        lblid.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
+        lblid.setForeground(new java.awt.Color(255, 255, 255));
+        lblid.setText("id");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addComponent(jLabel2)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblid, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(82, 82, 82)
-                .addComponent(btnVerCarrera, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnVerCarrera)
                 .addGap(55, 55, 55)
                 .addComponent(btnEditarCar)
                 .addContainerGap(119, Short.MAX_VALUE))
@@ -72,83 +86,96 @@ public class frmApuesta extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap(15, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(28, 28, 28))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnVerCarrera, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnEditarCar, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap())))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnVerCarrera, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEditarCar, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblid)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 43, 730, 90));
 
         jPanel3.setBackground(new java.awt.Color(204, 255, 204));
 
-        btnVolver.setBackground(new java.awt.Color(255, 255, 153));
-        btnVolver.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        btnVolver.setText("VOLVER");
+        lblJin1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/caballojin.png"))); // NOI18N
 
-        btnSalir.setBackground(new java.awt.Color(255, 102, 102));
-        btnSalir.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        btnSalir.setText("SALIR");
+        pnMeta.setBackground(new java.awt.Color(255, 102, 102));
 
-        btnApostar.setBackground(new java.awt.Color(153, 255, 153));
-        btnApostar.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        btnApostar.setText("APOSTAR");
-
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/caballojin.png"))); // NOI18N
-
-        jPanel5.setBackground(new java.awt.Color(255, 102, 102));
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout pnMetaLayout = new javax.swing.GroupLayout(pnMeta);
+        pnMeta.setLayout(pnMetaLayout);
+        pnMetaLayout.setHorizontalGroup(
+            pnMetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 16, Short.MAX_VALUE)
         );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 293, Short.MAX_VALUE)
+        pnMetaLayout.setVerticalGroup(
+            pnMetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
+
+        lblJin2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/caballojin.png"))); // NOI18N
+
+        lblJin3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/caballojin.png"))); // NOI18N
+
+        lblJin4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/caballojin.png"))); // NOI18N
+
+        lblJin5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/caballojin.png"))); // NOI18N
+
+        lblJin6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/caballojin.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 585, Short.MAX_VALUE)
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblJin1)
+                    .addComponent(lblJin2)
+                    .addComponent(lblJin3)
+                    .addComponent(lblJin4)
+                    .addComponent(lblJin5)
+                    .addComponent(lblJin6))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 603, Short.MAX_VALUE)
+                .addComponent(pnMeta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnMeta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jLabel3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(lblJin1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblJin2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblJin3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblJin4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblJin5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblJin6)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
+
+        btnEmpezar.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        btnEmpezar.setText("EMPEZAR CARRERA");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(90, 90, 90)
-                .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(109, 109, 109)
-                .addComponent(btnApostar, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(120, 120, 120))
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(272, 272, 272)
+                        .addComponent(btnEmpezar)))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -156,15 +183,12 @@ public class frmApuesta extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnVolver)
-                    .addComponent(btnSalir)
-                    .addComponent(btnApostar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(11, 11, 11)
+                .addComponent(btnEmpezar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 134, 730, 370));
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 134, 730, 390));
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 255));
 
@@ -191,6 +215,46 @@ public class frmApuesta extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 730, -1));
+
+        jPanel6.setBackground(new java.awt.Color(255, 255, 153));
+
+        btnApostar.setBackground(new java.awt.Color(153, 255, 153));
+        btnApostar.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        btnApostar.setText("APOSTAR");
+
+        btnSalir.setBackground(new java.awt.Color(255, 102, 102));
+        btnSalir.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        btnSalir.setText("SALIR");
+
+        btnVolver.setBackground(new java.awt.Color(255, 255, 153));
+        btnVolver.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        btnVolver.setText("VOLVER");
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                .addGap(80, 80, 80)
+                .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(108, 108, 108)
+                .addComponent(btnApostar, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 117, Short.MAX_VALUE)
+                .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(96, 96, 96))
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnApostar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnVolver)
+                    .addComponent(btnSalir))
+                .addContainerGap())
+        );
+
+        getContentPane().add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 520, 730, 60));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -233,16 +297,24 @@ public class frmApuesta extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnApostar;
     public javax.swing.JButton btnEditarCar;
+    public javax.swing.JButton btnEmpezar;
     public javax.swing.JButton btnSalir;
     public javax.swing.JButton btnVerCarrera;
     public javax.swing.JButton btnVolver;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    public javax.swing.JLabel lblJin1;
+    public javax.swing.JLabel lblJin2;
+    public javax.swing.JLabel lblJin3;
+    public javax.swing.JLabel lblJin4;
+    public javax.swing.JLabel lblJin5;
+    public javax.swing.JLabel lblJin6;
+    public javax.swing.JLabel lblid;
+    public javax.swing.JPanel pnMeta;
     // End of variables declaration//GEN-END:variables
 }

@@ -53,7 +53,8 @@ public class ControladorCrearCar {
                 else{
                     carreraGenerica = new Carrera();
                     frmApuesta vistaVerApuesta = new frmApuesta();
-                    ControladorApuesta controlApuesta = new ControladorApuesta(vistaVerApuesta);
+                    JLabel tick = new JLabel();
+                    ControladorApuesta controlApuesta = new ControladorApuesta(vistaVerApuesta,tick);
                     vistaCarrera.dispose();
                     controlApuesta.iniciar();
                 }
@@ -63,56 +64,60 @@ public class ControladorCrearCar {
         this.vistaCarrera.btnPart.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e){
-                guardarDatos(carreraGenerica);
+                
                 if(editarRegistro == false){
+                    guardarDatos(carreraGenerica);
                     int i=1;
                         if(i==carreraGenerica.getNumeroPart()){
                             jockeyGenerico = new Jockey();
                             frmJockeysCaballos vistaJockeyCaballo = new frmJockeysCaballos();
                             ControladorJockeysCaballos controlJockeyCab = new ControladorJockeysCaballos(vistaJockeyCaballo,i);
-                            Botones2(false);
+                            //Botones2(false);
                             vistaCarrera.dispose();
                             controlJockeyCab.iniciarUlt(i);
                         }else{
                             jockeyGenerico = new Jockey();
                             frmJockeysCaballos vistaJockeyCaballo = new frmJockeysCaballos();
                             ControladorJockeysCaballos controlJockeyCab = new ControladorJockeysCaballos(vistaJockeyCaballo,i);
+                            Botones2(false);
                             vistaCarrera.dispose();
                             controlJockeyCab.iniciar(i);
                         }
                     
                 }
                 else{
-                    for(int i=0; i<carreraGenerica.getNumeroPart()-1;i++){
-                        if(i==carreraGenerica.getNumeroPart()-1){
+                    guardarDatos(carreraGenerica);
+                        int i=1;
+                        if(i==carreraGenerica.getNumeroPart()){
                             jockeyGenerico = new Jockey();
                             frmJockeysCaballos vistaJockeyCaballo = new frmJockeysCaballos();
                             ControladorJockeysCaballos controlJockeyCab = new ControladorJockeysCaballos(vistaJockeyCaballo,i);
-                            Botones2(false);
+                            sistemA.guardar();
                             vistaCarrera.dispose();
-                            controlJockeyCab.iniciarEditarUlt(i);
+                            controlJockeyCab.iniciarEditUltReg(i);
                         }else{
                             jockeyGenerico = new Jockey();
                             frmJockeysCaballos vistaJockeyCaballo = new frmJockeysCaballos();
                             ControladorJockeysCaballos controlJockeyCab = new ControladorJockeysCaballos(vistaJockeyCaballo,i);
                             vistaCarrera.dispose();
-                            controlJockeyCab.iniciarEditar(i);
+                            sistemA.guardar();
+                            controlJockeyCab.iniciarEditReg(i);
                         }
                     }
-                }
+                
             }
         });
         this.vistaCarrera.btnCab.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e){
-                guardarDatos(carreraGenerica);
                 if(editarRegistro == false){
+                    guardarDatos(carreraGenerica);
                     int i=1;
                         if(i==carreraGenerica.getNumeroCab()){
                             caballoGenerico = new Caballo();
                             frmCaballos vistaCaballos = new frmCaballos();
                             ControladorCaballos controlCab = new ControladorCaballos(vistaCaballos,i);
-                            Botones2(true);
+                            //Botones2(true);
                             vistaCarrera.dispose();
                             controlCab.iniciarUlt(i);
                         }else{
@@ -126,22 +131,25 @@ public class ControladorCrearCar {
                     
                 }
                 else{
-                    for(int i=0; i<carreraGenerica.getNumeroCab()-1;i++){
-                        if(i==carreraGenerica.getNumeroCab()-1){
+                    guardarDatos(carreraGenerica);
+                    int i=1;
+                        if(i==carreraGenerica.getNumeroCab()){
                             caballoGenerico = new Caballo();
                             frmCaballos vistaCaballos = new frmCaballos();
                             ControladorCaballos controlCab = new ControladorCaballos(vistaCaballos,i);
+                            sistemA.guardar();
                             vistaCarrera.dispose();
-                            controlCab.iniciarEditarUlt(i);
+                            controlCab.iniciarEditUltReg(i);
                         }else{
                             caballoGenerico = new Caballo();
                             frmCaballos vistaCaballos = new frmCaballos();
                             ControladorCaballos controlCab = new ControladorCaballos(vistaCaballos,i);
+                            sistemA.guardar();
                             vistaCarrera.dispose();
-                            controlCab.iniciarEditar(i);
+                            controlCab.iniciarEditReg(i);
                         }
                     }
-                }
+                
             }
         });
         
@@ -171,7 +179,8 @@ public class ControladorCrearCar {
                                 BotonesR(true);
                                 sistemA.getCarreras().agregarCarrera(carreraGenerica);
                                 frmApuesta vistaApuesta = new frmApuesta();
-                                ControladorApuesta controlApuesta = new ControladorApuesta(vistaApuesta);
+                                JLabel tick = new JLabel();
+                                ControladorApuesta controlApuesta = new ControladorApuesta(vistaApuesta,tick);
                                 sistemA.guardar();
                                 carreraActiva = carreraGenerica;
                                 vistaCarrera.dispose();
@@ -246,7 +255,42 @@ public class ControladorCrearCar {
         this.editarRegistro = false;
         Botones3(estado);
     }
-    public void iniciarEditar(int n) {
+    public void iniciarEditar() {
+        setDatos(carreraGenerica);
+        this.vistaCarrera.setLocationRelativeTo(null);
+        this.vistaCarrera.lblTitulo.setText("EDITAR CARRERA");
+        this.vistaCarrera.btnSalir.setVisible(false);
+        this.vistaCarrera.btnPart.setText("EDITAR PARTICIPANTES");
+        this.vistaCarrera.btnCab.setText("EDITAR CABALLOS");
+        this.vistaCarrera.btnRegistrar.setText("GUARDAR");
+        this.vistaCarrera.setVisible(true);
+        this.editarRegistro = true;
+    }
+    public void iniciarEditarB2(boolean estado) {
+        setDatos(carreraGenerica);
+        this.vistaCarrera.setLocationRelativeTo(null);
+        this.vistaCarrera.lblTitulo.setText("EDITAR CARRERA");
+        this.vistaCarrera.btnSalir.setVisible(false);
+        this.vistaCarrera.btnPart.setText("EDITAR PARTICIPANTES");
+        this.vistaCarrera.btnCab.setText("EDITAR CABALLOS");
+        this.vistaCarrera.btnRegistrar.setText("GUARDAR");
+        this.vistaCarrera.setVisible(true);
+        this.editarRegistro = true;
+        Botones2(estado);
+    }
+    public void iniciarEditarB3(boolean estado) {
+        setDatos(carreraGenerica);
+        this.vistaCarrera.setLocationRelativeTo(null);
+        this.vistaCarrera.lblTitulo.setText("EDITAR CARRERA");
+        this.vistaCarrera.btnSalir.setVisible(false);
+        this.vistaCarrera.btnPart.setText("EDITAR PARTICIPANTES");
+        this.vistaCarrera.btnCab.setText("EDITAR CABALLOS");
+        this.vistaCarrera.btnRegistrar.setText("GUARDAR");
+        this.vistaCarrera.setVisible(true);
+        this.editarRegistro = true;
+        Botones3(estado);
+    }
+    public void iniciarEditar2(int n) {
         setDatos2(n);
         this.vistaCarrera.setLocationRelativeTo(null);
         this.vistaCarrera.lblTitulo.setText("EDITAR CARRERA");

@@ -15,9 +15,9 @@ public class ControladorJockeysCaballos {
     private frmJockeysCaballos vistaJockeyCaballo;
     private int num;
     private boolean editarJockeys;
-    private boolean Ultimo=false;
     private boolean editarUltimo=false;
-    
+    private boolean editarJockeysYCarrera;
+    private boolean Ultimo=false;
     public ControladorJockeysCaballos(frmJockeysCaballos vistaJockeyCaballo,int num){
         this.vistaJockeyCaballo = vistaJockeyCaballo;
         this.num = num;
@@ -31,19 +31,14 @@ public class ControladorJockeysCaballos {
         this.vistaJockeyCaballo.btnCancelar.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e){
-                if(editarJockeys == false){
-                    jockeyGenerico = new Jockey();
-                    frmCrearCarrera vistaCrearCar = new frmCrearCarrera ();
-                    ControladorCrearCar controlCrearCar= new ControladorCrearCar(vistaCrearCar);
-                    vistaJockeyCaballo.dispose();
+                frmCrearCarrera vistaCrearCar = new frmCrearCarrera();
+                ControladorCrearCar controlCrearCar = new ControladorCrearCar(vistaCrearCar);
+                cerrarVentana();
+                if(editarJockeysYCarrera==false){
                     controlCrearCar.iniciar();
                 }
                 else{
-                    jockeyGenerico = new Jockey();
-                    frmCrearCarrera vistaCrearCar = new frmCrearCarrera ();
-                    ControladorCrearCar controlCrearCar= new ControladorCrearCar(vistaCrearCar);
-                    vistaJockeyCaballo.dispose();
-                    //controlCrearCar.iniciarEditar();
+                    controlCrearCar.iniciarEditar();
                 }
             }
         });
@@ -59,46 +54,95 @@ public class ControladorJockeysCaballos {
                         jockeyAuxiliar = new Jockey();
                         jockeyAuxiliar = jockeyGenerico;
                         jockeyGenerico = new Jockey(vistaJockeyCaballo.txtNombreJ.getText(), Integer.parseInt(vistaJockeyCaballo.txtEdadJ.getText()));
-                            if(editarJockeys == false){                               
-                                if(Ultimo==false){
-                                    carreraGenerica.agregarJockey(jockeyGenerico);
-                                    frmJockeysCaballos vistaJockCab = new frmJockeysCaballos ();
-                                    ControladorJockeysCaballos controlJockeyCaballo = new ControladorJockeysCaballos(vistaJockCab,num+1);
-                                    vistaJockeyCaballo.dispose();
-                                    controlJockeyCaballo.iniciar(num+1);
-                                }
-                                else {
-                                    carreraGenerica.agregarJockey(jockeyGenerico);
-                                    frmCrearCarrera vistaCrearCar = new frmCrearCarrera();
-                                    ControladorCrearCar controlCrearCar = new ControladorCrearCar(vistaCrearCar);
-                                    vistaJockeyCaballo.dispose();
-                                    if(carreraGenerica.getIndiceC()==0){
-                                        controlCrearCar.iniciarB2(false);
-                                    }else{
-                                        controlCrearCar.iniciarB3(true);
+          
+                            if(editarJockeys == false){
+                                if(editarJockeysYCarrera==false){
+                                    if(Ultimo==false){
+                                        carreraGenerica.agregarJockey(jockeyGenerico);
+                                        frmJockeysCaballos vistaJock = new frmJockeysCaballos();
+                                        ControladorJockeysCaballos controlJockeys = new ControladorJockeysCaballos(vistaJock,num+1);
+                                        cerrarVentana();
+                                        controlJockeys.iniciar(num+1);
                                     }
-                                }                              
+                                    else {
+                                        carreraGenerica.agregarJockey(jockeyGenerico);
+                                        frmCrearCarrera vistaCrearCar = new frmCrearCarrera();
+                                        ControladorCrearCar controlCrearCar = new ControladorCrearCar(vistaCrearCar);
+                                        cerrarVentana();
+                                        if(carreraGenerica.getIndiceC()==0){
+                                            controlCrearCar.iniciarB2(false);
+                                        }else{
+                                            controlCrearCar.iniciarB3(true);
+                                        }
+                                    } 
+                                }
+                                else if(editarJockeysYCarrera == true){
+                                    if(Ultimo==false){
+                                        carreraGenerica.agregarJockey(jockeyGenerico);
+                                        frmJockeysCaballos vistaJock = new frmJockeysCaballos();
+                                        ControladorJockeysCaballos controlJockeys = new ControladorJockeysCaballos(vistaJock,num+1);
+                                        cerrarVentana();
+                                        controlJockeys.iniciar(num+1);
+                                    }
+                                    else {
+                                        carreraGenerica.agregarJockey(jockeyGenerico);
+                                        frmCrearCarrera vistaCrearCar = new frmCrearCarrera();
+                                        ControladorCrearCar controlCrearCar = new ControladorCrearCar(vistaCrearCar);
+                                        cerrarVentana();
+                                        if(carreraGenerica.getIndiceC()==0){
+                                            controlCrearCar.iniciarEditarB2(false);
+                                        }else{
+                                            controlCrearCar.iniciarEditarB3(true);
+                                        }
+                                    }
+                                }
                             }
-                            else {                             
-                                if(editarUltimo==false){
+                            else if(editarJockeys==true){
+                                if(editarJockeysYCarrera==false){
                                     carreraGenerica.eliminarJockey(jockeyAuxiliar);
                                     carreraGenerica.agregarJockey(jockeyGenerico);
                                     jockeyAuxiliar = new Jockey();
-                                    frmJockeysCaballos vistaJockCab = new frmJockeysCaballos ();
-                                    ControladorJockeysCaballos controlJockeyCaballo = new ControladorJockeysCaballos(vistaJockCab,num+1);
-                                    vistaJockeyCaballo.dispose();
-                                    controlJockeyCaballo.iniciarEditar(num+1);
+                                    if(Ultimo==false){
+                                        frmJockeysCaballos vistaJock = new frmJockeysCaballos();
+                                        ControladorJockeysCaballos controlJockeys = new ControladorJockeysCaballos(vistaJock,num+1);
+                                        cerrarVentana();
+                                        controlJockeys.iniciarEditar(num+1);
+                                    }
+                                    else {
+                                        carreraGenerica.agregarJockey(jockeyGenerico);
+                                        frmCrearCarrera vistaCrearCar = new frmCrearCarrera();
+                                        ControladorCrearCar controlCrearCar = new ControladorCrearCar(vistaCrearCar);
+                                        cerrarVentana();
+                                        if(carreraGenerica.getIndiceC()==0){
+                                            controlCrearCar.iniciarB2(true);
+                                        }else{
+                                            controlCrearCar.iniciarB3(true);
+                                        }
+                                    }
                                 }
-                                else {
+                                else if(editarJockeysYCarrera==true){
                                     carreraGenerica.eliminarJockey(jockeyAuxiliar);
                                     carreraGenerica.agregarJockey(jockeyGenerico);
-                                    jockeyAuxiliar = new Jockey();                                   
-                                    frmCrearCarrera vistaCrearCar = new frmCrearCarrera();
-                                    ControladorCrearCar controlCrearCar = new ControladorCrearCar(vistaCrearCar);
-                                    vistaJockeyCaballo.dispose();
-                                    //controlCrearCar.iniciarEditar();
-                                }                                                          
-                            }                                            
+                                    jockeyAuxiliar = new Jockey();
+                                    if(Ultimo==false){
+                                        frmJockeysCaballos vistaJock = new frmJockeysCaballos();
+                                        ControladorJockeysCaballos controlJockeys = new ControladorJockeysCaballos(vistaJock,num+1);
+                                        cerrarVentana();
+                                        controlJockeys.iniciarEditar(num+1);
+                                    }
+                                    else {
+                                        carreraGenerica.agregarJockey(jockeyGenerico);
+                                        frmCrearCarrera vistaCrearCar = new frmCrearCarrera();
+                                        ControladorCrearCar controlCrearCar = new ControladorCrearCar(vistaCrearCar);
+                                        cerrarVentana();
+                                        if(carreraGenerica.getIndiceC()==0){
+                                            controlCrearCar.iniciarEditarB2(true);
+                                        }else{
+                                            controlCrearCar.iniciarEditarB3(true);
+                                        }
+                                    }
+                                }
+                            }
                     }
                     else{
                         JOptionPane.showMessageDialog(null, "Los datos ingresados no son correctos");
@@ -119,6 +163,7 @@ public class ControladorJockeysCaballos {
         vistaJockeyCaballo.setLocationRelativeTo(null);
         vistaJockeyCaballo.lblNumero.setText(String.valueOf(i));
         vistaJockeyCaballo.setVisible(true);
+        this.editarJockeysYCarrera = false;
         this.editarJockeys = false;
     }
     
@@ -130,8 +175,29 @@ public class ControladorJockeysCaballos {
         vistaJockeyCaballo.btnSalir.setVisible(false);
         vistaJockeyCaballo.btnAgregar.setText("GUARDAR");
         vistaJockeyCaballo.setVisible(true);
+        this.editarJockeysYCarrera = false;
         this.editarJockeys = true;
     }
+    public void iniciarEditReg(int i) {
+        setDatos(jockeyGenerico);
+        vistaJockeyCaballo.setLocationRelativeTo(null);
+        vistaJockeyCaballo.lblNumero.setText(String.valueOf(i));
+        vistaJockeyCaballo.setVisible(true);
+        this.editarJockeysYCarrera = true;
+        this.editarJockeys = false;
+    }
+    public void iniciarEditRegJock(int i) {
+        setDatos(jockeyGenerico);
+        vistaJockeyCaballo.setLocationRelativeTo(null);
+        vistaJockeyCaballo.lblTitulo.setText("EDITAR JOCKEY Nro");
+        vistaJockeyCaballo.lblNumero.setText(String.valueOf(i));
+        vistaJockeyCaballo.btnSalir.setVisible(false);
+        vistaJockeyCaballo.btnAgregar.setText("GUARDAR");
+        vistaJockeyCaballo.setVisible(true);
+        this.editarJockeysYCarrera = true;
+        this.editarJockeys = true;
+    }
+ 
     public void iniciarUlt(int j) {
         setDatos(jockeyGenerico);
         vistaJockeyCaballo.setLocationRelativeTo(null);
@@ -139,6 +205,7 @@ public class ControladorJockeysCaballos {
         vistaJockeyCaballo.btnCancelar.setText("VOLVER");
         vistaJockeyCaballo.btnAgregar.setText("TERMINAR");
         vistaJockeyCaballo.setVisible(true);
+        this.editarJockeysYCarrera = false;
         this.editarJockeys = false;
     }
     public void iniciarEditarUlt(int j) {
@@ -150,6 +217,30 @@ public class ControladorJockeysCaballos {
         vistaJockeyCaballo.btnSalir.setVisible(false);
         vistaJockeyCaballo.btnAgregar.setText("TERMINAR GUARDADO");
         vistaJockeyCaballo.setVisible(true);
+        this.editarJockeysYCarrera = false;
+        this.editarJockeys = true;
+    }
+    
+    public void iniciarEditUltReg(int j) {
+        setDatos(jockeyGenerico);
+        vistaJockeyCaballo.setLocationRelativeTo(null);
+        vistaJockeyCaballo.lblNumero.setText(String.valueOf(j));
+        vistaJockeyCaballo.btnCancelar.setText("VOLVER");
+        vistaJockeyCaballo.btnAgregar.setText("TERMINAR");
+        vistaJockeyCaballo.setVisible(true);
+        this.editarJockeysYCarrera = true;
+        this.editarJockeys = false;
+    }
+    public void iniciarEditUltRegJock(int j) {
+        setDatos(jockeyGenerico);
+        vistaJockeyCaballo.setLocationRelativeTo(null);
+        vistaJockeyCaballo.lblTitulo.setText("EDITAR JOCKEY Nro");
+        vistaJockeyCaballo.lblNumero.setText(String.valueOf(j));
+        vistaJockeyCaballo.btnCancelar.setText("VOLVER");
+        vistaJockeyCaballo.btnSalir.setVisible(false);
+        vistaJockeyCaballo.btnAgregar.setText("TERMINAR GUARDADO");
+        vistaJockeyCaballo.setVisible(true);
+        this.editarJockeysYCarrera = true;
         this.editarJockeys = true;
     }
     
@@ -229,5 +320,8 @@ public class ControladorJockeysCaballos {
             result = true;
         }
         return result;
+    }
+    public void cerrarVentana() {
+        this.vistaJockeyCaballo.dispose();
     }
 }
